@@ -1,0 +1,5 @@
+Trigger GitHub Pages rebuild
+
+This file was added to force a Pages rebuild.
+Timestamp: 2026-07-16T12:45:00Z
+Created by: copilot (via API)
