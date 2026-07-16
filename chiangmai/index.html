@@ -123,7 +123,8 @@
         ],
         "afternoon": [
           { "item": "返回市区，在 Nimmanhaemin 附近用午餐", "duration": "约 1 小时" },
-          { "item": "逛 Nimmanhaemin：画廊、咖啡馆与独立小店", "duration": "约 2–3 小时" }
+          { "item": "逛 Nimmanhaemin：画廊、咖啡馆与独立小店", "duration": "约 2–3 小时" },
+          { "item": "参观清迈大学校园或在大学周边的咖啡馆放松（可选）", "duration": "约 1–2 小时" }
         ],
         "evening": [
           { "item": "在 Nimman 用晚餐（现代泰或融合菜）", "duration": "约 1.5 小时" },
@@ -147,7 +148,8 @@
         ],
         "evening": [
           { "item": "返回清迈；晚餐与放松（可安排泰式按摩）", "duration": "约 2 小时" },
-          { "item": "Blackitch 晚宴 — Blackitch，19:45 开始，建议着装：正式/正装", "duration": "约 2.5 小时" }
+          { "item": "Blackitch 晚宴 — Blackitch，19:45 开始，建议着装：正式/正装", "duration": "约 2.5 小时" },
+          { "item": "若为周末：参观 JJ Market（周末市集，建议在周五/周六/周日查开放时间），或探索本地夜市（如 Saturday/Sunday Walking Street）", "duration": "约 1.5–2 小时" }
         ],
         "travel_to_next": { "mode": "旅行社面包车／包车", "time": "全天", "cost_est": "保护区约 2,500–4,000 THB/人；Doi Inthanon 约 1,800–3,000 THB/人（含交通与门票）" },
         "coords": { "elephant_sanctuary_area_approx": { "lat": 18.9550, "lon": 98.8780 }, "doi_inthanon_approx": { "lat": 18.5886, "lon": 98.4876 } },
@@ -182,7 +184,9 @@
       { "name": "Night Bazaar", "lat": 18.7868, "lon": 98.9998 },
       { "name": "Elephant sanctuary (Mae Rim 附近)", "lat": 18.9550, "lon": 98.8780 },
       { "name": "Doi Inthanon", "lat": 18.5886, "lon": 98.4876 },
-      { "name": "Warorot Market", "lat": 18.7929, "lon": 98.9993 }
+      { "name": "Warorot Market", "lat": 18.7929, "lon": 98.9993 },
+      { "name": "Chiang Mai University (CMU)", "lat": 18.7998, "lon": 98.9545, "note": "校园参观/咖啡馆" },
+      { "name": "JJ Market（周末市集，仅周末开放）", "lat": 18.7920, "lon": 98.9810, "note": "周末开放；请以当天信息为准" }
     ],
     "hotels": {
       "suggestions_area": "Old City 或 Nimmanhaemin",
@@ -203,12 +207,13 @@
     "bookings": {
       "must_book_in_advance": [
         { "item": "大象保护区（伦理型）", "action": "建议提前 2–8 周预订，确认接送时间与地点" },
-        { "item": "Doi Inthanon 或 包车一日游", "action": "旺季或周末建议提前预订" },
+        { "item": "Doi Inthanon 或 包车一日游", "action": "旺季或周末建议���前预订" },
         { "item": "热门烹饪课程", "action": "建议提前 1–2 周预订" }
       ],
       "recommended_book_ahead": [
         { "item": "如需英文导览的寺庙导览", "action": "建议提前一天预约" },
-        { "item": "节假日/周末的酒店", "action": "建议提前预订" }
+        { "item": "节假日/周末的酒店", "action": "建议提前预订" },
+        { "item": "JJ Market（周末市集）", "action": "仅周末开放；若行程包含周末夜市建议提前安排时间或选择近住宿" }
       ]
     },
     "packing": {
@@ -225,7 +230,8 @@
       "8 月为雨季：常有短时强降雨，建议将户外行程排在上午，并为下午留弹性。",
       "尊重寺庙着装规定（请勿穿无袖或短裤进入主要殿堂）。",
       "使用网约车或谈价的嘟嘟车短途出行；市场多使用现金。",
-      "小费为礼貌表示，可将车费凑整或餐厅 20–50 THB 视情况给予。"
+      "小费为礼貌表示，可将车费凑整或餐厅 20–50 THB 视情况给予。",
+      "JJ Market/部分夜市仅在周末开市；请以当地公告或住宿前台信息为准。"
     ]
   }
   </script>
@@ -273,6 +279,7 @@
       a.target = '_blank';
       a.rel = 'noopener';
       a.innerHTML = `<strong>${place.name}</strong><div class="coords muted small">${place.lat.toFixed(4)}, ${place.lon.toFixed(4)}</div>`;
+      if (place.note) a.innerHTML += `<div class="muted small">${place.note}</div>`;
       mapList.appendChild(a);
     });
 
