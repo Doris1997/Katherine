@@ -23,6 +23,7 @@
     .map-pin { display:flex; justify-content:space-between; align-items:center; padding:10px; }
     .map-pin.active { background: linear-gradient(90deg, rgba(255,111,60,0.06), rgba(255,111,60,0.01)); border-left:4px solid var(--accent); }
     .map-index { width:28px; height:28px; border-radius:8px; background:var(--accent); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-weight:700; margin-right:8px; }
+    .controls { display:flex; gap:8px; margin-top:8px; }
     @media(min-width:700px){ #map-container{flex-direction:row;} #leaflet-map{flex:1} .map-list{width:320px; max-height:none;} }
   </style>
 </head>
@@ -46,7 +47,11 @@
     <section class="meta" aria-label="旅程信息">
       <div><strong>城市</strong><div>Chiang Mai, Thailand</div></div>
       <div><strong>风格</strong><div>文化 / 美食 / 自然</div></div>
-      <div><strong>假设</strong><div>3 位成人，中等预算</div></div>
+      <div><strong>假设</strong><div id="meta-passengers">3 位成人，中等预算</div></div>
+      <div class="controls">
+        <button id="auto-adjust" class="btn">智能调整行程</button>
+        <button id="swap-2-3" class="btn">交换第 2 / 3 天</button>
+      </div>
     </section>
 
     <section id="days" class="days" aria-label="每日行程"></section>
@@ -100,15 +105,15 @@
 
       {"day_number":2,"date":"2026-08-14","title":"Doi Suthep · Nimmanhaemin 区","summary":"早上上山看 Doi Suthep 寺庙与展望，下午在 Nimman 咖啡馆与小店放松。","morning":[{"item":"前往 Wat Phra That Doi Suthep（包车或拼车／嘟嘟车），参观并观景","duration":"约 3–4 小时"}],"afternoon":[{"item":"返回市区，在 Nimmanhaemin 附近用午餐","duration":"约 1 小时"},{"item":"逛 Nimmanhaemin：画廊、咖啡馆与独立小店","duration":"约 2–3 小时"}],"evening":[{"item":"在 Nimman 用晚餐（现代泰或融合菜）","duration":"约 1.5 小时"},{"item":"可选屋顶酒吧或小型现场音乐场所","duration":"约 1–2 小时"}],"travel_to_next":{"mode":"出租/嘟嘟车","time":"市区→Doi Suthep 约 30–50 分钟（视交通）","cost_est":"约 200–500 THB 单程"},"coords":{"doi_suthep_approx":{"lat":18.8063,"lon":98.9214},"nimman_area_approx":{"lat":18.7958,"lon":98.9591}},"photo_keyword":"金色寺庙 山景","options":{"main":"Doi Suthep + Nimman","backup":"植物园或小型本地博物馆"}},
 
-      {"day_number":3,"date":"2026-08-15","title":"自然一日游：道德大象保育或 Doi Inthanon","summary":"整天的自然体验：伦理型大象保护区（不骑乘）或 Doi Inthanon 国家公园短途徒步与瀑布。","morning":[{"item":"早起接送前往保护区或 Doi Inthanon","duration":"车程视目的地 1–2 小时"}],"afternoon":[{"item":"保护区活动：喂食、观察恢复中的大象（无骑乘） 或 Doi Inthanon：瀑布、国王／王后塔、短程徒步","duration":"约 4–6 小时"}],"evening":[{"item":"返回清迈；晚餐与放松（可安排泰式按摩）","duration":"约 2 小时"},{"item":"Blackich 晚餐（已预订，3 人）","duration":"19:45"}],"travel_to_next":{"mode":"旅行社面包车／包车","time":"全天","cost_est":"保护区约 2,500–4,000 THB/人；Doi Inthanon 约 1,800–3,000 THB/人（含交通与门票）"},"coords":{"elephant_sanctuary_area_approx":{"lat":18.9550,"lon":98.8780},"doi_inthanon_approx":{"lat":18.5886,"lon":98.4876}},"photo_keyword":"大象保护区 或 山中瀑布","options":{"main":"Elephant Nature Park（需提前预订）","backup":"Doi Inthanon 一日游（较凉爽，适合徒步）"}},
+      {"day_number":3,"date":"2026-08-15","title":"自然一日游：道德大象保育或 Doi Inthanon","summary":"整天的自然体验：伦理型大象保护区（不骑乘）或 Doi Inthanon 国家公园短途徒步与瀑布。","morning":[{"item":"早起接送前往保护区或 Doi Inthanon","duration":"车程视目的地 1–2 小时"}],"afternoon":[{"item":"保护区活动：喂食、观察恢复中的大象（无骑乘） 或 Doi Inthanon：瀑布、国王／王后塔、短程徒步","duration":"约 4–6 小时"}],"evening":[{"item":"返回清迈；晚餐与放松（可安排泰式按摩）","duration":"约 2 小时"},{"item":"Blackich 晚餐（已预订，3 人）","duration":"19:45"}],"travel_to_next":{"mode":"旅行社面包车／包车","time":"全天","cost_est":"保护区約 2,500–4,000 THB/人；Doi Inthanon 約 1,800–3,000 THB/人（含交通與門票）"},"coords":{"elephant_sanctuary_area_approx":{"lat":18.9550,"lon":98.8780},"doi_inthanon_approx":{"lat":18.5886,"lon":98.4876}},"photo_keyword":"大象保育 或 山中瀑布","options":{"main":"Elephant Nature Park（需提前預訂）","backup":"Doi Inthanon 一日遊（較涼爽，適合徒步）"}},
 
-      {"day_number":4,"date":"2026-08-16","title":"烹饪课 · 市场购物 · 离开","summary":"半天烹饪课（含市场参观与午餐），下午市场购物并前往机场离开。","morning":[{"item":"参加泰式烹饪课（含市场采买与实作）","duration":"约 3.5–4 小时"}],"afternoon":[{"item":"前往 Warorot 市场或精品店购买纪念品；办理退房","duration":"约 2 小时"},{"item":"前往机场／下一目的地（请预留足够时间）","duration":"视航班而定"}],"evening":[{"item":"如时间允许，可在出发前轻松用餐；否则前往机场"}],"travel_to_next":{"mode":"出租或网约车","time":"市中心到机场約 20–30 分鐘","cost_est":"約 150–300 THB"},"coords":{"warorot_market_approx":{"lat":18.7929,"lon":98.9993}},"photo_keyword":"色彩丰富的市场 食材与烹饪课堂","options":{"main":"烹饪课 + 市场购物","backup":"半天自行车游"}}
+      {"day_number":4,"date":"2026-08-16","title":"烹飪課 · 市場購物 · 離開","summary":"半天烹飪課（含市場參觀與午餐），下午市場購物並前往機場離開。","morning":[{"item":"參加泰式烹飪課（含市場採買與實作）","duration":"約 3.5–4 小時"}],"afternoon":[{"item":"前往 Warorot 市場或精品店購買紀念品；辦理退房","duration":"約 2 小時"},{"item":"前往機場／下一目的地（請預留足夠時間）","duration":"視航班而定"}],"evening":[{"item":"如時間允許，可在出發前輕鬆用餐；否則前往機場"}],"travel_to_next":{"mode":"出租或網約車","time":"市中心到機場約 20–30 分鐘","cost_est":"約 150–300 THB"},"coords":{"warorot_market_approx":{"lat":18.7929,"lon":98.9993}},"photo_keyword":"色彩豐富的市場 食材與烹飪課堂","options":{"main":"烹飪課 + 市場購物","backup":"半天自行車遊"}}
     ],
     "map":[{"name":"Old City (中心)","lat":18.7878,"lon":98.9931},{"name":"Wat Phra That Doi Suthep","lat":18.8063,"lon":98.9214},{"name":"Nimmanhaemin 区","lat":18.7958,"lon":98.9591},{"name":"Night Bazaar","lat":18.7868,"lon":98.9998},{"name":"Elephant sanctuary (Mae Rim 附近)","lat":18.9550,"lon":98.8780},{"name":"Doi Inthanon","lat":18.5886,"lon":98.4876},{"name":"Warorot Market","lat":18.7929,"lon":98.9993}],
-    "hotels":{"suggestions_area":"Old City 或 Nimmanhaemin","picks":[{"type":"经济型","example":"舒适旅舍 / 精品民宿（Old City）","price_night_est":"700–1,200 THB"},{"type":"中档","example":"Nimman / Old City 精品酒店（如 U Nimman 类似）","price_night_est":"1,800–3,000 THB"},{"type":"奢华","example":"河畔或传统风格酒店（Tamarind-village 风格）","price_night_est":"3,500–7,000+ THB"}]},
-    "restaurants":{"picks":[{"name":"Khao Soi 小店（例如 Khao Soi Khun Yai）","category":"街头 / 本地","price_est":"60–150 THB/人"},{"name":"Huen Phen（北泰传统料理）","category":"中档","price_est":"150–350 THB/人"},{"name":"SP Chicken（烤鸡）","category":"随意用餐","price_est":"80–200 THB/人"},{"name":"Nimman 咖啡馆与屋顶酒吧","category":"现代 / 咖啡","price_est":"120–400 THB/人"}]},
-    "bookings":{"must_book_in_advance":[{"item":"大象保护区（伦理型）","action":"建议提前 2–8 周预订，确认接送时间与地点"},{"item":"Doi Inthanon 或 包车一日游","action":"旺季或周末建议提前预订"},{"item":"热门烹饪课程","action":"建议提前 1–2 周预订"}],"recommended_book_ahead":[{"item":"如需英文导览的寺庙导览","action":"建议提前一天预约"},{"item":"节假日/周末的酒店","action":"建议提前预订"}],"confirmed":[{"item":"Blackich 晚餐","date":"2026-08-15","time":"19:45","party":3,"notes":"已预订，晚餐为 Blackich（请提前 10–15 分钟到达）"}]},
-    "packing":{"short":["透气衣物、轻便雨衣（8 月為雨季）","舒适的步行鞋或凉鞋","寺廟禮節服裝（肩膀與膝蓋需遮蔽）","防蚊液與防晒霜","通用插座、手機充電器、小背包","護照復印件、常用藥物、可裝水的水瓶"]},
+    "hotels":{"suggestions_area":"Old City 或 Nimmanhaemin","picks":[{"type":"經濟型","example":"舒適旅舍 / 精品民宿（Old City）","price_night_est":"700–1,200 THB"},{"type":"中檔","example":"Nimman / Old City 精品酒店（如 U Nimman 類似）","price_night_est":"1,800–3,000 THB"},{"type":"奢華","example":"河畔或傳統風格酒店（Tamarind-village 風格）","price_night_est":"3,500–7,000+ THB"}]},
+    "restaurants":{"picks":[{"name":"Khao Soi 小店（例如 Khao Soi Khun Yai）","category":"街頭 / 本地","price_est":"60–150 THB/人"},{"name":"Huen Phen（北泰傳統料理）","category":"中檔","price_est":"150–350 THB/人"},{"name":"SP Chicken（烤雞）","category":"隨意用餐","price_est":"80–200 THB/人"},{"name":"Nimman 咖啡館與屋頂酒吧","category":"現代 / 咖啡","price_est":"120–400 THB/人"}]},
+    "bookings":{"must_book_in_advance":[{"item":"大象保育區（倫理型）","action":"建議提前 2–8 週預訂，確認接送時間與地點"},{"item":"Doi Inthanon 或 包車一日遊","action":"旺季或周末建議提前預訂"},{"item":"熱門烹飪課程","action":"建議提前 1–2 週預訂"}],"recommended_book_ahead":[{"item":"如需英文導覽的寺廟導覽","action":"建議提前一天預約"},{"item":"節假日/週末的酒店","action":"建議提前預訂"}],"confirmed":[{"item":"Blackich 晚餐","date":"2026-08-15","time":"19:45","party":3,"notes":"已預訂，晚餐為 Blackich（請提前 10–15 分鐘到達）"}]},
+    "packing":{"short":["透氣衣物、輕便雨衣（8 月為雨季）","舒適的步行鞋或涼鞋","寺廟禮節服裝（肩膀與膝蓋需遮蔽）","防蚊液與防晒霜","通用插座、手機充電器、小背包","護照復印件、常用藥物、可裝水的水瓶"]},
     "tips":["8 月為雨季：常有短時強降雨，建議將戶外行程排在上午，並為下午留彈性。","尊重寺廟著裝規定（請勿穿無袖或短褲進入主要殿堂）。","使用網約車或談價的嘟嘟車短途出行；市場多使用現金。","小費為禮貌表示，可將車費湊整或餐廳 20–50 THB 視情況給予。"]
   }
   </script>
@@ -116,45 +121,115 @@
   <script>
   // 渲染器並增強地圖/列表互動（編號 marker、聚合、雙向同步）
   (function(){
-    const data = JSON.parse(document.getElementById('trip-data').textContent);
+    let data = JSON.parse(document.getElementById('trip-data').textContent);
 
     // header
     document.getElementById('trip-title').textContent = data.meta.trip_name;
     document.getElementById('trip-dates').textContent = data.meta.start_date + ' — ' + data.meta.end_date + ' • 共 ' + data.meta.days + ' 天';
     document.getElementById('trip-overview').textContent = data.overview;
+    document.getElementById('meta-passengers').textContent = (data.meta.flights && data.meta.flights.passengers) ? data.meta.flights.passengers + ' 位成人，中等預算' : data.meta.assumptions;
 
-    // days
     const daysEl = document.getElementById('days');
-    data.days.forEach(day => {
-      const card = document.createElement('article');
-      card.className = 'day-card';
-      card.innerHTML = `
-        <header class="day-header">
-          <div class="day-badge">第 ${day.day_number} 天</div>
-          <div>
-            <h3 class="day-title">${day.title}</h3>
-            <div class="day-date muted">${day.date}</div>
-            <div class="day-summary muted">${day.summary}</div>
+
+    function primaryCoordForDay(day){
+      // choose a sensible primary coord from day.coords if present
+      if (!day.coords) return null;
+      const keys = Object.keys(day.coords);
+      if (keys.length===0) return null;
+      // prefer known names
+      const prefer = ['doi_suthep_approx','nimman_area_approx','elephant_sanctuary_area_approx','doi_inthanon_approx','old_city_center','wat_phra_singh_approx','warorot_market_approx'];
+      for(const p of prefer) if (day.coords[p]) return [day.coords[p].lat, day.coords[p].lon];
+      // otherwise first
+      const k = keys[0];
+      return [day.coords[k].lat, day.coords[k].lon];
+    }
+
+    function haversine(aLat,aLon,bLat,bLon){
+      function toRad(v){return v*Math.PI/180;}
+      const R=6371; // km
+      const dLat = toRad(bLat-aLat);
+      const dLon = toRad(bLon-aLon);
+      const lat1 = toRad(aLat), lat2 = toRad(bLat);
+      const sinDlat = Math.sin(dLat/2), sinDlon = Math.sin(dLon/2);
+      const a = sinDlat*sinDlat + Math.cos(lat1)*Math.cos(lat2)*sinDlon*sinDlon;
+      const c = 2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      return R*c;
+    }
+
+    function renderDays(){
+      daysEl.innerHTML='';
+      data.days.forEach(day => {
+        const card = document.createElement('article');
+        card.className = 'day-card';
+        card.innerHTML = `
+          <header class="day-header">
+            <div class="day-badge">第 ${day.day_number} 天</div>
+            <div>
+              <h3 class="day-title">${day.title}</h3>
+              <div class="day-date muted">${day.date}</div>
+              <div class="day-summary muted">${day.summary}</div>
+            </div>
+          </header>
+          <div class="day-body">
+            <div class="parts">
+              <div><strong>上午</strong><ul>${(day.morning||[]).map(i => `<li>${i.item} <span class="dur muted">${i.duration||''}</span></li>`).join('')}</ul></div>
+              <div><strong>下午</strong><ul>${(day.afternoon||[]).map(i => `<li>${i.item} <span class="dur muted">${i.duration||''}</span></li>`).join('')}</ul></div>
+              <div><strong>晚上</strong><ul>${(day.evening||[]).map(i => `<li>${i.item} <span class="dur muted">${i.duration||''}</span></li>`).join('')}</ul></div>
+            </div>
+            <div class="travel muted">交通建議：${day.travel_to_next ? `${day.travel_to_next.mode} • ${day.travel_to_next.time} • ${day.travel_to_next.cost_est || ''}` : '—'}</div>
+            <div class="options muted"><em>建議行程</em>：${day.options ? day.options.main || '' : ''}； <em>備選</em>：${day.options ? day.options.backup || '' : ''}</div>
           </div>
-        </header>
-        <div class="day-body">
-          <div class="parts">
-            <div><strong>上午</strong><ul>${(day.morning||[]).map(i => `<li>${i.item} <span class="dur muted">${i.duration||''}</span></li>`).join('')}</ul></div>
-            <div><strong>下午</strong><ul>${(day.afternoon||[]).map(i => `<li>${i.item} <span class="dur muted">${i.duration||''}</span></li>`).join('')}</ul></div>
-            <div><strong>晚上</strong><ul>${(day.evening||[]).map(i => `<li>${i.item} <span class="dur muted">${i.duration||''}</span></li>`).join('')}</ul></div>
-          </div>
-          <div class="travel muted">交通建議：${day.travel_to_next ? `${day.travel_to_next.mode} • ${day.travel_to_next.time} • ${day.travel_to_next.cost_est || ''}` : '—'}</div>
-          <div class="options muted"><em>建議行程</em>：${day.options.main}； <em>備選</em>：${day.options.backup}</div>
-        </div>
-      `;
-      daysEl.appendChild(card);
+        `;
+        daysEl.appendChild(card);
+      });
+    }
+
+    // swap days in data and re-render
+    function swapDays(i,j){
+      if (i<0 || j<0 || i>=data.days.length || j>=data.days.length) return;
+      const tmp = data.days[i]; data.days[i]=data.days[j]; data.days[j]=tmp;
+      // ensure day_number reflect order
+      data.days.forEach((d,idx)=> d.day_number=idx+1);
+      renderDays();
+      // scroll to days section for visibility
+      document.getElementById('days').scrollIntoView({behavior:'smooth'});
+    }
+
+    // auto adjust heuristic: compare distance from base (Old City) to primary coords; put closer day earlier
+    function autoAdjust(){
+      const baseDay = data.days[0];
+      const baseCoord = primaryCoordForDay(baseDay) || (data.map && data.map[0] ? [data.map[0].lat,data.map[0].lon] : null);
+      if (!baseCoord) { alert('缺少基点坐标，无法智能调整'); return; }
+      const d1 = primaryCoordForDay(data.days[1]);
+      const d2 = primaryCoordForDay(data.days[2]);
+      if (!d1 || !d2) { alert('部分行程缺少坐标，智能调整受限'); return; }
+      // measure distance from base to each day's primary; shorter should be earlier
+      const dist1 = haversine(baseCoord[0],baseCoord[1],d1[0],d1[1]);
+      const dist2 = haversine(baseCoord[0],baseCoord[1],d2[0],d2[1]);
+      // if day3 is closer than day2, swap them
+      if (dist2 < dist1){
+        if (confirm('第 3 天的主要景点更靠近市區，是否将第 2 天与第 3 天互换以减少来回路程？')){
+          swapDays(1,2);
+        }
+      } else {
+        alert('经评估，当前顺序已较为顺畅，无需调整。');
+      }
+    }
+
+    // initial render
+    renderDays();
+
+    document.getElementById('swap-2-3').addEventListener('click', function(){
+      if (confirm('确定要把第 2 天与第 3 天交换吗？')) swapDays(1,2);
     });
+    document.getElementById('auto-adjust').addEventListener('click', function(){ autoAdjust(); });
 
     // map list and leaflet init
     const mapList = document.getElementById('map-list');
     const mapData = data.map || [];
 
     // create list items with index badges
+    mapList.innerHTML = '';
     mapData.forEach((place, idx) => {
       const a = document.createElement('a');
       a.className = 'map-pin';
