@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>待办清单（本地存储）</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>待办清单</h1>
+      <p class="muted">使用本地存储保存任务 · 支持拖拽排序</p>
+    </header>
+
+    <section class="input-row">
+      <input id="new-task" type="text" placeholder="添加新任务，按 Enter 保存" autocomplete="off" />
+      <button id="add-btn" aria-label="添加任务">添加</button>
+    </section>
+
+    <section class="controls">
+      <div class="filters" role="tablist" aria-label="筛选任务">
+        <button class="filter active" data-filter="all">全部</button>
+        <button class="filter" data-filter="active">未完成</button>
+        <button class="filter" data-filter="completed">已完成</button>
+      </div>
+      <div class="actions">
+        <button id="clear-completed">清空已完成</button>
+        <button id="export">导出 JSON</button>
+        <button id="import-btn">导入</button>
+        <input id="import-file" type="file" accept="application/json" style="display:none" />
+      </div>
+    </section>
+
+    <section class="todo-list-wrap">
+      <ul id="todo-list" class="todo-list" aria-label="任务列表"></ul>
+      <p id="empty" class="empty muted">暂无任务 — 试着添加第一个任务</p>
+    </section>
+
+    <footer class="footer muted">
+      <small>本地保存在浏览器（localStorage）。支持手机与桌面。</small>
+    </footer>
+  </main>
+
+<script>
+// 简易待办应用（localStorage + drag & drop）
+(() => {
+  const STORAGE_KEY = 'todo_app_v1';
+  let todos = [];
+  let filter = 'all';
+
+  // DOM
+  const elNew = document.getElementById('new-task');
+  const btnAdd = document.getElementById('add-btn');
+  const listEl = document.getElementById('todo-list');
+  const emptyEl = document.getElementById('empty');
+  const filterBtns = document.querySelectorAll('.filter');
+  const clearCompletedBtn = document.getElementById('clear-completed');
+  const exportBtn = document.getElementById('export');
+  const importBtn = document.getElementById('import-btn');
+  const importFile = document.getElementById('import-file');
+
+  // 初始化
+  function load() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      todos = raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      todos = [];
+    }
+  }
+
+  function save() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+  }
+
+  function uid() {
+    return Date.now().toString(36) + Math.random().toString(36).slice(2,8);
+  }
+
+  // 渲染
+  function render() {
+    listEl.innerHTML = '';
+    const visible = todos.filter(t => {
+      if (filter === 'active') return !t.completed;
+      if (filter === 'completed') return t.completed;
+      return true;
+    });
+
+    if (visible.length === 0) {
+      emptyEl.style.display = 'block';
+    } else {
+      emptyEl.style.display = 'none';
+    }
+
+    visible.forEach(todo => {
+      const li = document.createElement('li');
+      li.className = 'todo-item';
+      li.draggable = true;
+      li.dataset.id = todo.id;
+
+      li.innerHTML = `
+        <label class="task">
+          <input type="checkbox" class="toggle" ${todo.completed ? 'checked' : ''} />
+          <span class="text ${todo.completed ? 'done' : ''}"></span>
+        </label>
+        <div class="meta">
+          <button class="edit">编辑</button>
+          <button class="delete">删除</button>
+        </div>
+      `;
+
+      const textEl = li.querySelector('.text');
+      textEl.textContent = todo.text;
+
+      // 事件: toggle
+      li.querySelector('.toggle').addEventListener('change', (e) => {
+        todo.completed = e.target.checked;
+        save();
+        render();
+      });
+
+      // 编辑
+      li.querySelector('.edit').addEventListener('click', () => {
+        startEdit(todo, textEl);
+      });
+
+      // 删除
+      li.querySelector('.delete').addEventListener('click', () => {
+        todos = todos.filter(t => t.id !== todo.id);
+        save();
+        render();
+      });
+
+      // 拖拽事件
+      li.addEventListener('dragstart', dragStart);
+      li.addEventListener('dragover', dragOver);
+      li.addEventListener('drop', drop);
+      li.addEventListener('dragend', dragEnd);
+
+      listEl.appendChild(li);
+    });
+  }
+
+  // 编辑行内
+  function startEdit(todo, textEl) {
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.value = todo.text;
+    input.className = 'inline-edit';
+    textEl.replaceWith(input);
+    input.focus();
+    input.setSelectionRange(input.value.length, input.value.length);
+
+    function finish(saveEdit) {
+      if (saveEdit) {
+        todo.text = input.value.trim() || todo.text;
+        save();
+      }
+      render();
+    }
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') finish(true);
+      if (e.key === 'Escape') finish(false);
+    });
+    input.addEventListener('blur', () => finish(true));
+  }
+
+  // 拖拽相关：基于 id 交换位置
+  let dragId = null;
+  function dragStart(e) {
+    dragId = this.dataset.id;
+    e.dataTransfer.effectAllowed = 'move';
+    this.classList.add('dragging');
+  }
+  function dragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    this.classList.add('drag-over');
+  }
+  function drop(e) {
+    e.preventDefault();
+    this.classList.remove('drag-over');
+    const targetId = this.dataset.id;
+    if (!dragId || dragId === targetId) return;
+    const fromIndex = todos.findIndex(t => t.id === dragId);
+    const toIndex = todos.findIndex(t => t.id === targetId);
+    if (fromIndex === -1 || toIndex === -1) return;
+    const [moved] = todos.splice(fromIndex,1);
+    todos.splice(toIndex,0,moved);
+    save();
+    render();
+  }
+  function dragEnd() {
+    dragId = null;
+    document.querySelectorAll('.todo-item').forEach(i => {
+      i.classList.remove('dragging','drag-over');
+    });
+  }
+
+  // 添加任务
+  function addTask(text) {
+    const t = text.trim();
+    if (!t) return;
+    todos.push({ id: uid(), text: t, completed: false });
+    save();
+    render();
+  }
+
+  // 事件绑定
+  btnAdd.addEventListener('click', () => {
+    addTask(elNew.value);
+    elNew.value = '';
+    elNew.focus();
+  });
+  elNew.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      addTask(elNew.value);
+      elNew.value = '';
+    }
+  });
+
+  filterBtns.forEach(b => {
+    b.addEventListener('click', () => {
+      filterBtns.forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      filter = b.dataset.filter;
+      render();
+    });
+  });
+
+  clearCompletedBtn.addEventListener('click', () => {
+    todos = todos.filter(t => !t.completed);
+    save();
+    render();
+  });
+
+  // 导出 JSON
+  exportBtn.addEventListener('click', () => {
+    const dataStr = JSON.stringify(todos, null, 2);
+    const blob = new Blob([dataStr], {type: 'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'todos.json';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  });
+
+  // 导入 JSON
+  importBtn.addEventListener('click', () => importFile.click());
+  importFile.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        const imported = JSON.parse(ev.target.result);
+        if (!Array.isArray(imported)) throw new Error('格式不正确');
+        // 简单校验并合并（保留现有）
+        imported.forEach(item => {
+          if (item && item.text) {
+            todos.push({
+              id: item.id || uid(),
+              text: String(item.text),
+              completed: !!item.completed
+            });
+          }
+        });
+        save();
+        render();
+      } catch (err) {
+        alert('导入失败：文件不是有效的 JSON（预期为待办数组）。');
+      }
+    };
+    reader.readAsText(file);
+    importFile.value = '';
+  });
+
+  // 启动
+  load();
+  render();
+
+})();
+</script>
+</body>
+</html>
