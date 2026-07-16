@@ -141,6 +141,10 @@ section.meta div > div{ font-weight:600; font-size:14px; }
 .map-pin strong{ font-size:14px; font-weight:700; }
 .coords{ font-size:12px; color:var(--muted); }
 
+/* Leaflet map container */
+#leaflet-map{ width:100%; height:320px; border-radius:12px; overflow:hidden; margin-bottom:10px; }
+.leaflet-container { border-radius:12px; }
+
 /* Hotels/Restaurants two-column on wide */
 .grid-2{ margin-top:12px; display:grid; gap:12px; grid-template-columns:1fr; }
 .grid-2 article{ padding:12px; background:var(--card); border-radius:12px; box-shadow:var(--shadow); border:1px solid rgba(15,23,42,0.03); }
