@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chiang Mai 4-day trip — 13 Aug to 16 Aug</title>
+
+  <!-- MVP.css (classless framework used by the template) -->
+  <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+
+  <!-- Custom overrides to match the template's palette/spacing -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1 id="trip-title">Chiang Mai — 4 days</h1>
+      <p id="trip-dates">13 Aug — 16 Aug, 2026 • 4 days</p>
+      <p id="trip-overview" class="muted">Short, culture-forward 4-day Chiang Mai trip mixing Old City temples, a mountain temple visit, an ethical elephant sanctuary or Doi Inthanon nature day, a Thai cooking class, and evenings sampling northern cuisine and night markets.</p>
+    </header>
+
+    <section class="meta">
+      <div><strong>City:</strong> Chiang Mai, Thailand</div>
+      <div><strong>Style:</strong> Culture / Food / Nature</div>
+      <div><strong>Assumptions:</strong> 2 adults, mid-range</div>
+    </section>
+
+    <!-- Days: use article/section so MVP.css treats them as cards -->
+    <section id="days">
+      <!-- Rendered by embedded JSON + script -->
+    </section>
+
+    <section id="map">
+      <h2>Map & Pins</h2>
+      <div id="map-list" class="map-list"></div>
+      <p class="muted small">Tap a place to open in Google Maps.</p>
+    </section>
+
+    <section id="hotel-restaurants" class="grid-2">
+      <article>
+        <h3>Hotel picks</h3>
+        <ul id="hotel-list"></ul>
+      </article>
+      <article>
+        <h3>Restaurants</h3>
+        <ul id="restaurant-list"></ul>
+      </article>
+    </section>
+
+    <section id="bookings">
+      <h3>Bookings</h3>
+      <ul id="bookings-list"></ul>
+    </section>
+
+    <section id="packing">
+      <h3>Packing</h3>
+      <ul id="packing-list"></ul>
+    </section>
+
+    <section id="tips">
+      <h3>Practical tips</h3>
+      <ul id="tips-list"></ul>
+    </section>
+
+    <footer>
+      <p class="muted small">Generated itinerary — edit the JSON below to update content.</p>
+    </footer>
+  </main>
+
+  <!-- Embedded itinerary JSON (edit here to change content) -->
+  <script id="trip-data" type="application/json">
+  {
+    "meta": {
+      "trip_name": "Chiang Mai 4-day trip",
+      "start_date": "2026-08-13",
+      "end_date": "2026-08-16",
+      "nights": 3,
+      "days": 4,
+      "primary_city": "Chiang Mai, Thailand",
+      "assumptions": "2 adults, mid-range budget, mixed culture/food/nature focus, travel within Chiang Mai by taxi/songthaew/ride-hail."
+    },
+    "overview": "Short, culture-forward 4-day Chiang Mai trip mixing Old City temples, a mountain temple visit, an ethical elephant sanctuary or Doi Inthanon nature day, a Thai cooking class, and evenings sampling northern cuisine and night markets. Designed for moderate pace with time to relax and soak up Lanna atmosphere.",
+    "days": [
+      {
+        "day_number": 1,
+        "date": "2026-08-13",
+        "title": "Arrival + Old City intro",
+        "summary": "Arrive, check-in, explore Old City temples and try northern dishes; evening at Night Bazaar.",
+        "morning": [
+          { "item": "Arrive Chiang Mai & hotel check-in (aim for early check-in if possible)", "duration": "1–2h" },
+          { "item": "Light walk around Old City to get oriented; visit Wat Phra Singh", "duration": "1h" }
+        ],
+        "afternoon": [
+          { "item": "Lunch: taste khao soi (local specialty)", "duration": "1h" },
+          { "item": "Visit Wat Chedi Luang and city moat area; optional cycling/ tuk-tuk tour", "duration": "2h" }
+        ],
+        "evening": [
+          { "item": "Dinner near Old City (northern cuisine)", "duration": "1.5h" },
+          { "item": "Stroll Chiang Mai Night Bazaar (shopping & street food)", "duration": "1.5–2h" }
+        ],
+        "travel_to_next": { "mode": "local taxi / tuk-tuk / walk", "time": "mostly <30 min", "cost_est": "50–200 THB per trip" },
+        "coords": { "old_city_center": { "lat": 18.7878, "lon": 98.9931 }, "wat_phra_singh_approx": { "lat": 18.7893, "lon": 98.9853 } },
+        "photo_keyword": "Old City temple golden chedi",
+        "options": { "main": "Explore Old City temples + Night Bazaar", "backup": "Relax at hotel and visit a nearby spa" }
+      },
+      {
+        "day_number": 2,
+        "date": "2026-08-14",
+        "title": "Doi Suthep & Nimmanhaemin",
+        "summary": "Morning trip to Doi Suthep for views and temple visit; afternoon/evening exploring Nimman’s cafes and nightlife.",
+        "morning": [
+          { "item": "Head up to Wat Phra That Doi Suthep (songthaew/taxi or private car). Temple visit and viewpoint", "duration": "3–4h" }
+        ],
+        "afternoon": [
+          { "item": "Return to city; lunch near Nimmanhaemin", "duration": "1h" },
+          { "item": "Explore Nimmanhaemin district: galleries, cafes, boutiques", "duration": "2–3h" }
+        ],
+        "evening": [
+          { "item": "Dinner in Nimman (modern Thai / fusion)", "duration": "1.5h" },
+          { "item": "Optional evening visit to a rooftop bar or live-music venue", "duration": "1–2h" }
+        ],
+        "travel_to_next": { "mode": "taxi/songthaew", "time": "city→Doi Suthep ~30–50 min (depending on traffic)", "cost_est": "200–500 THB one-way" },
+        "coords": { "doi_suthep_approx": { "lat": 18.8063, "lon": 98.9214 }, "nimman_area_approx": { "lat": 18.7958, "lon": 98.9591 } },
+        "photo_keyword": "golden temple & city view at sunrise",
+        "options": { "main": "Doi Suthep + Nimman", "backup": "Botanical Garden or small local museum if weather poor" }
+      },
+      {
+        "day_number": 3,
+        "date": "2026-08-15",
+        "title": "Nature day — Elephant sanctuary or Doi Inthanon",
+        "summary": "Full-day ethical wildlife or mountain national-park experience (choose either an ethical elephant sanctuary or Doi Inthanon national park).",
+        "morning": [
+          { "item": "Early pick-up for full-day tour (sanctuary) or Doi Inthanon trip", "duration": "transfer 1–2h depending on site" }
+        ],
+        "afternoon": [
+          { "item": "Activities at sanctuary: feeding, observing rescued elephants (no riding) OR Doi Inthanon: waterfalls, King & Queen pagodas, short hikes", "duration": "4–6h" }
+        ],
+        "evening": [
+          { "item": "Return to Chiang Mai; relaxed dinner and optional Thai massage", "duration": "2h" }
+        ],
+        "travel_to_next": { "mode": "organized tour van / private car", "time": "full day", "cost_est": "sanctuary 2,500–4,000 THB pp; Doi Inthanon 1,800–3,000 THB pp (includes guide/entry/transport)" },
+        "coords": { "elephant_sanctuary_area_approx": { "lat": 18.9550, "lon": 98.8780 }, "doi_inthanon_approx": { "lat": 18.5886, "lon": 98.4876 } },
+        "photo_keyword": "elephant rescue sanctuary or mountain waterfall",
+        "options": { "main": "Elephant Nature Park (ethical) — must book in advance", "backup": "Doi Inthanon day trip (scenic, cooler, hiking)" }
+      },
+      {
+        "day_number": 4,
+        "date": "2026-08-16",
+        "title": "Cooking class, markets & departure",
+        "summary": "Learn Thai cooking in a half-day class, visit a local market for souvenirs, and prepare for departure.",
+        "morning": [
+          { "item": "Thai cooking class (market visit + hands-on lesson + lunch)", "duration": "3.5–4h" }
+        ],
+        "afternoon": [
+          { "item": "Last-minute shopping at Warorot Market or boutique shops; check-out", "duration": "2h" },
+          { "item": "Transfer to airport / next destination", "duration": "allow 1–2h depending on flight" }
+        ],
+        "evening": [
+          { "item": "If time allows, casual early dinner; otherwise airport transfer", "duration": "as required" }
+        ],
+        "travel_to_next": { "mode": "taxi or ride-hail to airport", "time": "20–30 min from Old City", "cost_est": "150–300 THB" },
+        "coords": { "warorot_market_approx": { "lat": 18.7929, "lon": 98.9993 } },
+        "photo_keyword": "Thai cooking class with colorful ingredients",
+        "options": { "main": "Cooking class + market", "backup": "Half-day bicycle tour if you prefer more active morning" }
+      }
+    ],
+    "map": [
+      { "name": "Old City (center)", "lat": 18.7878, "lon": 98.9931 },
+      { "name": "Wat Phra That Doi Suthep (approx)", "lat": 18.8063, "lon": 98.9214 },
+      { "name": "Nimmanhaemin district (approx)", "lat": 18.7958, "lon": 98.9591 },
+      { "name": "Night Bazaar (approx)", "lat": 18.7868, "lon": 98.9998 },
+      { "name": "Elephant sanctuary area (Mae Rim - approx)", "lat": 18.9550, "lon": 98.8780 },
+      { "name": "Doi Inthanon (approx)", "lat": 18.5886, "lon": 98.4876 },
+      { "name": "Warorot Market (approx)", "lat": 18.7929, "lon": 98.9993 }
+    ],
+    "hotels": {
+      "suggestions_area": "Old City or Nimmanhaemin (for convenience & dining)",
+      "picks": [
+        { "type": "budget", "example": "Comfort guesthouse / boutique hostel (Old City)", "price_night_est": "700–1,200 THB" },
+        { "type": "mid-range", "example": "Nimman / Old City boutique hotel (e.g., U Nimman or similar)", "price_night_est": "1,800–3,000 THB" },
+        { "type": "splurge", "example": "Luxury riverside or heritage hotel (Tamarind-village style)", "price_night_est": "3,500–7,000+ THB" }
+      ]
+    },
+    "restaurants": {
+      "picks": [
+        { "name": "Khao Soi local shop (try Khao Soi Khun Yai or similar)", "category": "street/local", "price_est": "60–150 THB per person" },
+        { "name": "Huen Phen (Northern Thai specialties)", "category": "mid-range", "price_est": "150–350 THB per person" },
+        { "name": "SP Chicken or local rotisserie", "category": "casual", "price_est": "80–200 THB per person" },
+        { "name": "Nimman cafes & rooftop bars", "category": "modern/cafe", "price_est": "120–400 THB per person" }
+      ]
+    },
+    "bookings": {
+      "must_book_in_advance": [
+        { "item": "Elephant sanctuary (ethical-facing sanctuaries sell out quickly)", "action": "Book 2–8 weeks in advance; confirm pickup location/time" },
+        { "item": "Doi Inthanon or private full-day tours", "action": "Book earlier in high season or weekends" },
+        { "item": "Popular cooking classes", "action": "Reserve a spot 1–2 weeks ahead" }
+      ],
+      "recommended_book_ahead": [
+        { "item": "Temple guided tour if you want an English guide", "action": "Book day before" },
+        { "item": "Hotel if traveling on holiday weekends", "action": "Reserve now" }
+      ]
+    },
+    "packing": {
+      "short": [
+        "Breathable clothes, light rain jacket (Aug = rainy season)",
+        "Comfortable walking shoes / sandals",
+        "Modest clothing for temples (shoulders & knees covered)",
+        "Insect repellent & sunscreen",
+        "Universal adapter, phone charger, small daypack",
+        "Passport copy, any medications, water bottle"
+      ]
+    },
+    "tips": [
+      "August is rainy season: expect short heavy showers—plan morning activities for outdoors and keep afternoons flexible.",
+      "Respect temple dress codes (no shorts or sleeveless tops inside main sanctuaries).",
+      "Use ride-hail apps or negotiated songthaew fares for short trips; set aside cash for markets.",
+      "Tipping is appreciated but modest; round up taxi fares and 20–50 THB at restaurants when happy."
+    ]
+  }
+  </script>
+
+  <script>
+  // Renderer that follows MVP.css semantic structure
+  (function(){
+    const data = JSON.parse(document.getElementById('trip-data').textContent);
+
+    document.getElementById('trip-title').textContent = data.meta.trip_name;
+    document.getElementById('trip-dates').textContent = data.meta.start_date + ' — ' + data.meta.end_date + ' • ' + data.meta.days + ' days';
+    document.getElementById('trip-overview').textContent = data.overview;
+
+    const daysEl = document.getElementById('days');
+    data.days.forEach(day => {
+      const art = document.createElement('article');
+      art.innerHTML = `
+        <h2>Day ${day.day_number} — ${day.title}</h2>
+        <p class="muted small">${day.date} · ${day.summary}</p>
+        <div class="day-grid">
+          <div>
+            <h4>Morning</h4>
+            <ul>${day.morning.map(m => `<li>${m.item} ${m.duration ? ` — <span class="muted small">${m.duration}</span>` : ''}</li>`).join('')}</ul>
+          </div>
+          <div>
+            <h4>Afternoon</h4>
+            <ul>${day.afternoon.map(m => `<li>${m.item} ${m.duration ? ` — <span class="muted small">${m.duration}</span>` : ''}</li>`).join('')}</ul>
+          </div>
+          <div>
+            <h4>Evening</h4>
+            <ul>${day.evening.map(m => `<li>${m.item} ${m.duration ? ` — <span class="muted small">${m.duration}</span>` : ''}</li>`).join('')}</ul>
+          </div>
+        </div>
+        <p class="muted small">Transport: ${day.travel_to_next ? `${day.travel_to_next.mode} • ${day.travel_to_next.time} • ${day.travel_to_next.cost_est || ''}` : '—'}</p>
+      `;
+      daysEl.appendChild(art);
+    });
+
+    const mapList = document.getElementById('map-list');
+    data.map.forEach(p => {
+      const a = document.createElement('a');
+      a.href = `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lon}`;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = p.name + ' — ' + p.lat.toFixed(4) + ', ' + p.lon.toFixed(4);
+      mapList.appendChild(a);
+    });
+
+    data.hotels.picks.forEach(h => {
+      const li = document.createElement('li');
+      li.textContent = `${h.type} — ${h.example} (${h.price_night_est})`;
+      document.getElementById('hotel-list').appendChild(li);
+    });
+
+    data.restaurants.picks.forEach(r => {
+      const li = document.createElement('li');
+      li.textContent = `${r.name} — ${r.category} • ${r.price_est}`;
+      document.getElementById('restaurant-list').appendChild(li);
+    });
+
+    data.bookings.must_book_in_advance.forEach(b => {
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${b.item}</strong>: ${b.action}`;
+      document.getElementById('bookings-list').appendChild(li);
+    });
+    data.bookings.recommended_book_ahead.forEach(b => {
+      const li = document.createElement('li');
+      li.innerHTML = `<em>${b.item}</em>: ${b.action}`;
+      document.getElementById('bookings-list').appendChild(li);
+    });
+
+    data.packing.short.forEach(p => {
+      const li = document.createElement('li');
+      li.textContent = p;
+      document.getElementById('packing-list').appendChild(li);
+    });
+
+    data.tips.forEach(t => {
+      const li = document.createElement('li');
+      li.textContent = t;
+      document.getElementById('tips-list').appendChild(li);
+    });
+  })();
+  </script>
+</body>
+</html>
