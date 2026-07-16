@@ -1,0 +1,5 @@
+Force Pages rebuild - final update
+
+This file forces GitHub Pages to rebuild the site so the latest chiangmai/index.html is deployed.
+Timestamp: 2026-07-16T13:30:00Z
+Created by: copilot (via API)
