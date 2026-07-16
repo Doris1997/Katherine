@@ -46,7 +46,7 @@
     <section class="meta" aria-label="旅程信息">
       <div><strong>城市</strong><div>Chiang Mai, Thailand</div></div>
       <div><strong>风格</strong><div>文化 / 美食 / 自然</div></div>
-      <div><strong>假设</strong><div>2 位成人，中等预算</div></div>
+      <div><strong>假设</strong><div>3 位成人，中等预算</div></div>
     </section>
 
     <section id="days" class="days" aria-label="每日行程"></section>
@@ -62,51 +62,59 @@
 
     <section id="hotel-restaurants" class="grid-2" aria-label="酒店与餐厅">
       <article>
-        <h3>酒店推荐</h3>
+        <h3>酒店推薦</h3>
         <ul id="hotel-list"></ul>
       </article>
       <article>
-        <h3>餐厅推荐</h3>
+        <h3>餐廳推薦</h3>
         <ul id="restaurant-list"></ul>
       </article>
     </section>
 
-    <section id="bookings" aria-label="预订建议">
-      <h3>预订提醒</h3>
+    <section id="bookings" aria-label="預訂建議">
+      <h3>預訂 / 已確認</h3>
       <ul id="bookings-list"></ul>
     </section>
 
-    <section id="packing" aria-label="打包清单">
-      <h3>打包清单</h3>
+    <section id="packing" aria-label="打包清單">
+      <h3>打包清單</h3>
       <ul id="packing-list"></ul>
     </section>
 
-    <section id="tips" aria-label="实用提示">
-      <h3>实用提示</h3>
+    <section id="tips" aria-label="實用提示">
+      <h3>實用提示</h3>
       <ul id="tips-list"></ul>
     </section>
 
     <footer class="footer">
-      <p class="muted small">行程由 AI 生成。如需调整节奏、预算或添加地图/图片，告诉我即可。</p>
+      <p class="muted small">行程由 AI 生成。如需調整節奏、預算或添加地圖/圖片，告訴我即可。</p>
     </footer>
   </main>
 
   <script id="trip-data" type="application/json">
   {
-    "meta": {"trip_name":"清迈 4 天短程行程","start_date":"2026-08-13","end_date":"2026-08-16","nights":3,"days":4,"primary_city":"Chiang Mai, Thailand","assumptions":"2 adults, mid-range budget, mixed culture/food/nature focus"},
+    "meta": {"trip_name":"清迈 4 天短程行程","start_date":"2026-08-13","end_date":"2026-08-16","nights":3,"days":4,"primary_city":"Chiang Mai, Thailand","assumptions":"3 adults, mid-range budget","flights":{"outbound":"UO738","return":"UO739","passengers":3}},
     "overview":"融合旧城寺庙、Doi Suthep 山寺、道德型大象保护区或 Doi Inthanon 国家公园、泰式烹饪课，以及夜市与北泰美食的轻松节奏行程。",
-    "days":[{"day_number":1,"date":"2026-08-13","title":"抵达 · 旧城区漫步","summary":"抵达并入住酒店，游览 Old City 的主要寺庙，傍晚逛 Night Bazaar。","morning":[{"item":"抵达 Chiang Mai 并入住酒店（如需提早入住房可事先联系酒店）","duration":"1–2 小时"},{"item":"旧城区轻徒步，参观 Wat Phra Singh","duration":"约 1 小时"}],"afternoon":[{"item":"午餐：品尝 Khao Soi（北泰招牌）","duration":"约 1 小时"},{"item":"参观 Wat Chedi Luang 与护城河周边，可选自行车或嘟嘟车短程游览","duration":"约 2 小时"}],"evening":[{"item":"旧城区附近晚餐（北泰风味）","duration":"约 1.5 小时"},{"item":"逛 Chiang Mai Night Bazaar（街头小吃与手工艺品）","duration":"约 1.5–2 小时"}],"travel_to_next":{"mode":"本地出租/嘟嘟车/步行","time":"多数路段 <30 分钟","cost_est":"约 50–200 THB/次"},"coords":{"old_city_center":{"lat":18.7878,"lon":98.9931},"wat_phra_singh_approx":{"lat":18.7893,"lon":98.9853}},"photo_keyword":"旧城寺庙 金塔","options":{"main":"旧城区寺庙 + 夜市","backup":"酒店放松或附近水疗"}},{"day_number":2,"date":"2026-08-14","title":"Doi Suthep · Nimmanhaemin 区","summary":"早上上山看 Doi Suthep 寺庙与展望，下午在 Nimman 咖啡馆与小店放松。","morning":[{"item":"前往 Wat Phra That Doi Suthep（包车或拼车／嘟嘟车），参观并观景","duration":"约 3–4 小时"}],"afternoon":[{"item":"返回市区，在 Nimmanhaemin 附近用午餐","duration":"约 1 小时"},{"item":"逛 Nimmanhaemin：画廊、咖啡馆与独立小店","duration":"约 2–3 小时"}],"evening":[{"item":"在 Nimman 用晚餐（现代泰或融合菜）","duration":"约 1.5 小时"},{"item":"可选屋顶酒吧或小型现场音乐场所","duration":"约 1–2 小时"}],"travel_to_next":{"mode":"出租/嘟嘟车","time":"市区→Doi Suthep 约 30–50 分钟（视交通）","cost_est":"约 200–500 THB 单程"},"coords":{"doi_suthep_approx":{"lat":18.8063,"lon":98.9214},"nimman_area_approx":{"lat":18.7958,"lon":98.9591}},"photo_keyword":"金色寺庙 山景","options":{"main":"Doi Suthep + Nimman","backup":"植物园或小型本地博物馆"}},{"day_number":3,"date":"2026-08-15","title":"自然一日游：道德大象保育或 Doi Inthanon","summary":"整天的自然体验：伦理型大象保护区（不骑乘）或 Doi Inthanon 国家公园短途徒步与瀑布。","morning":[{"item":"早起接送前往保护区或 Doi Inthanon","duration":"车程视目的地 1–2 小时"}],"afternoon":[{"item":"保护区活动：喂食、观察恢复中的大象（无骑乘） 或 Doi Inthanon：瀑布、国王／王后塔、短程徒步","duration":"约 4–6 小时"}],"evening":[{"item":"返回清迈；晚餐与放松（可安排泰式按摩）","duration":"约 2 小时"}],"travel_to_next":{"mode":"旅行社面包车／包车","time":"全天","cost_est":"保护区约 2,500–4,000 THB/人；Doi Inthanon 约 1,800–3,000 THB/人（含交通与门票）"},"coords":{"elephant_sanctuary_area_approx":{"lat":18.9550,"lon":98.8780},"doi_inthanon_approx":{"lat":18.5886,"lon":98.4876}},"photo_keyword":"大象保护区 或 山中瀑布","options":{"main":"Elephant Nature Park（需提前预订）","backup":"Doi Inthanon 一日游（较凉爽，适合徒步）"}},{"day_number":4,"date":"2026-08-16","title":"烹饪课 · 市场购物 · 离开","summary":"半天烹饪课（含市场参观与午餐），下午市场购物并前往机场离开。","morning":[{"item":"参加泰式烹饪课（含市场采买与实作）","duration":"约 3.5–4 小时"}],"afternoon":[{"item":"前往 Warorot 市场或精品店购买纪念品；办理退房","duration":"约 2 小时"},{"item":"前往机场／下一目的地（请预留足够时间）","duration":"视航班而定"}],"evening":[{"item":"如时间允许，可在出发前轻松用餐；否则前往机场"}],"travel_to_next":{"mode":"出租或网约车","time":"市中心到机场约 20–30 分钟","cost_est":"约 150–300 THB"},"coords":{"warorot_market_approx":{"lat":18.7929,"lon":98.9993}},"photo_keyword":"色彩丰富的市场 食材与烹饪课堂","options":{"main":"烹饪课 + 市场购物","backup":"半天自行车游"}}],
+    "days":[
+      {"day_number":1,"date":"2026-08-13","title":"抵达 · 旧城区漫步","summary":"抵达并入住酒店，游览 Old City 的主要寺庙，傍晚逛 Night Bazaar。","morning":[{"item":"抵达 Chiang Mai 并入住酒店（如需提早入住房可事先联系酒店）","duration":"1–2 小时"},{"item":"旧城区轻徒步，参观 Wat Phra Singh","duration":"约 1 小时"}],"afternoon":[{"item":"午餐：品尝 Khao Soi（北泰招牌）","duration":"约 1 小时"},{"item":"参观 Wat Chedi Luang 与护城河周边，可选自行车或嘟嘟车短程游览","duration":"约 2 小时"}],"evening":[{"item":"旧城区附近晚餐（北泰风味）","duration":"约 1.5 小时"},{"item":"逛 Chiang Mai Night Bazaar（街头小吃与手工艺品）","duration":"约 1.5–2 小时"}],"travel_to_next":{"mode":"本地出租/嘟嘟车/步行","time":"多数路段 <30 分钟","cost_est":"约 50–200 THB/次"},"coords":{"old_city_center":{"lat":18.7878,"lon":98.9931},"wat_phra_singh_approx":{"lat":18.7893,"lon":98.9853}},"photo_keyword":"旧城寺庙 金塔","options":{"main":"旧城区寺庙 + 夜市","backup":"酒店放松或附近水疗"}},
+
+      {"day_number":2,"date":"2026-08-14","title":"Doi Suthep · Nimmanhaemin 区","summary":"早上上山看 Doi Suthep 寺庙与展望，下午在 Nimman 咖啡馆与小店放松。","morning":[{"item":"前往 Wat Phra That Doi Suthep（包车或拼车／嘟嘟车），参观并观景","duration":"约 3–4 小时"}],"afternoon":[{"item":"返回市区，在 Nimmanhaemin 附近用午餐","duration":"约 1 小时"},{"item":"逛 Nimmanhaemin：画廊、咖啡馆与独立小店","duration":"约 2–3 小时"}],"evening":[{"item":"在 Nimman 用晚餐（现代泰或融合菜）","duration":"约 1.5 小时"},{"item":"可选屋顶酒吧或小型现场音乐场所","duration":"约 1–2 小时"}],"travel_to_next":{"mode":"出租/嘟嘟车","time":"市区→Doi Suthep 约 30–50 分钟（视交通）","cost_est":"约 200–500 THB 单程"},"coords":{"doi_suthep_approx":{"lat":18.8063,"lon":98.9214},"nimman_area_approx":{"lat":18.7958,"lon":98.9591}},"photo_keyword":"金色寺庙 山景","options":{"main":"Doi Suthep + Nimman","backup":"植物园或小型本地博物馆"}},
+
+      {"day_number":3,"date":"2026-08-15","title":"自然一日游：道德大象保育或 Doi Inthanon","summary":"整天的自然体验：伦理型大象保护区（不骑乘）或 Doi Inthanon 国家公园短途徒步与瀑布。","morning":[{"item":"早起接送前往保护区或 Doi Inthanon","duration":"车程视目的地 1–2 小时"}],"afternoon":[{"item":"保护区活动：喂食、观察恢复中的大象（无骑乘） 或 Doi Inthanon：瀑布、国王／王后塔、短程徒步","duration":"约 4–6 小时"}],"evening":[{"item":"返回清迈；晚餐与放松（可安排泰式按摩）","duration":"约 2 小时"},{"item":"Blackich 晚餐（已预订，3 人）","duration":"19:45"}],"travel_to_next":{"mode":"旅行社面包车／包车","time":"全天","cost_est":"保护区约 2,500–4,000 THB/人；Doi Inthanon 约 1,800–3,000 THB/人（含交通与门票）"},"coords":{"elephant_sanctuary_area_approx":{"lat":18.9550,"lon":98.8780},"doi_inthanon_approx":{"lat":18.5886,"lon":98.4876}},"photo_keyword":"大象保护区 或 山中瀑布","options":{"main":"Elephant Nature Park（需提前预订）","backup":"Doi Inthanon 一日游（较凉爽，适合徒步）"}},
+
+      {"day_number":4,"date":"2026-08-16","title":"烹饪课 · 市场购物 · 离开","summary":"半天烹饪课（含市场参观与午餐），下午市场购物并前往机场离开。","morning":[{"item":"参加泰式烹饪课（含市场采买与实作）","duration":"约 3.5–4 小时"}],"afternoon":[{"item":"前往 Warorot 市场或精品店购买纪念品；办理退房","duration":"约 2 小时"},{"item":"前往机场／下一目的地（请预留足够时间）","duration":"视航班而定"}],"evening":[{"item":"如时间允许，可在出发前轻松用餐；否则前往机场"}],"travel_to_next":{"mode":"出租或网约车","time":"市中心到机场約 20–30 分鐘","cost_est":"約 150–300 THB"},"coords":{"warorot_market_approx":{"lat":18.7929,"lon":98.9993}},"photo_keyword":"色彩丰富的市场 食材与烹饪课堂","options":{"main":"烹饪课 + 市场购物","backup":"半天自行车游"}}
+    ],
     "map":[{"name":"Old City (中心)","lat":18.7878,"lon":98.9931},{"name":"Wat Phra That Doi Suthep","lat":18.8063,"lon":98.9214},{"name":"Nimmanhaemin 区","lat":18.7958,"lon":98.9591},{"name":"Night Bazaar","lat":18.7868,"lon":98.9998},{"name":"Elephant sanctuary (Mae Rim 附近)","lat":18.9550,"lon":98.8780},{"name":"Doi Inthanon","lat":18.5886,"lon":98.4876},{"name":"Warorot Market","lat":18.7929,"lon":98.9993}],
     "hotels":{"suggestions_area":"Old City 或 Nimmanhaemin","picks":[{"type":"经济型","example":"舒适旅舍 / 精品民宿（Old City）","price_night_est":"700–1,200 THB"},{"type":"中档","example":"Nimman / Old City 精品酒店（如 U Nimman 类似）","price_night_est":"1,800–3,000 THB"},{"type":"奢华","example":"河畔或传统风格酒店（Tamarind-village 风格）","price_night_est":"3,500–7,000+ THB"}]},
     "restaurants":{"picks":[{"name":"Khao Soi 小店（例如 Khao Soi Khun Yai）","category":"街头 / 本地","price_est":"60–150 THB/人"},{"name":"Huen Phen（北泰传统料理）","category":"中档","price_est":"150–350 THB/人"},{"name":"SP Chicken（烤鸡）","category":"随意用餐","price_est":"80–200 THB/人"},{"name":"Nimman 咖啡馆与屋顶酒吧","category":"现代 / 咖啡","price_est":"120–400 THB/人"}]},
-    "bookings":{"must_book_in_advance":[{"item":"大象保护区（伦理型）","action":"建议提前 2–8 周预订，确认接送时间与地点"},{"item":"Doi Inthanon 或 包车一日游","action":"旺季或周末建议提前预订"},{"item":"热门烹饪课程","action":"建议提前 1–2 周预订"}],"recommended_book_ahead":[{"item":"如需英文导览的寺庙导览","action":"建议提前一天预约"},{"item":"节假日/周末的酒店","action":"建议提前预订"}]},
-    "packing":{"short":["透气衣物、轻便雨衣（8 月为雨季）","舒适的步行鞋或凉鞋","寺庙礼节服装（肩膀与膝盖需遮蔽）","防蚊液与防晒霜","通用插座、手机充电器、小背包","护照复印件、常用药物、可装水的水瓶"]},
-    "tips":["8 月为雨季：常有短时强降雨，建议将户外行程排在上午，并为下午留弹性。","尊重寺庙着装规定（请勿穿无袖或短裤进入主要殿堂）。","使用网约车或谈价的嘟嘟车短途出行；市场多使用现金。","小费为礼貌表示，可将车费凑整或餐厅 20–50 THB 视情况给予。"]
+    "bookings":{"must_book_in_advance":[{"item":"大象保护区（伦理型）","action":"建议提前 2–8 周预订，确认接送时间与地点"},{"item":"Doi Inthanon 或 包车一日游","action":"旺季或周末建议提前预订"},{"item":"热门烹饪课程","action":"建议提前 1–2 周预订"}],"recommended_book_ahead":[{"item":"如需英文导览的寺庙导览","action":"建议提前一天预约"},{"item":"节假日/周末的酒店","action":"建议提前预订"}],"confirmed":[{"item":"Blackich 晚餐","date":"2026-08-15","time":"19:45","party":3,"notes":"已预订，晚餐为 Blackich（请提前 10–15 分钟到达）"}]},
+    "packing":{"short":["透气衣物、轻便雨衣（8 月為雨季）","舒适的步行鞋或凉鞋","寺廟禮節服裝（肩膀與膝蓋需遮蔽）","防蚊液與防晒霜","通用插座、手機充電器、小背包","護照復印件、常用藥物、可裝水的水瓶"]},
+    "tips":["8 月為雨季：常有短時強降雨，建議將戶外行程排在上午，並為下午留彈性。","尊重寺廟著裝規定（請勿穿無袖或短褲進入主要殿堂）。","使用網約車或談價的嘟嘟車短途出行；市場多使用現金。","小費為禮貌表示，可將車費湊整或餐廳 20–50 THB 視情況給予。"]
   }
   </script>
 
   <script>
-  // 渲染器并增强地图/列表互动（编号 marker、聚合、双向同步）
+  // 渲染器並增強地圖/列表互動（編號 marker、聚合、雙向同步）
   (function(){
     const data = JSON.parse(document.getElementById('trip-data').textContent);
 
@@ -135,8 +143,8 @@
             <div><strong>下午</strong><ul>${(day.afternoon||[]).map(i => `<li>${i.item} <span class="dur muted">${i.duration||''}</span></li>`).join('')}</ul></div>
             <div><strong>晚上</strong><ul>${(day.evening||[]).map(i => `<li>${i.item} <span class="dur muted">${i.duration||''}</span></li>`).join('')}</ul></div>
           </div>
-          <div class="travel muted">交通建议：${day.travel_to_next ? `${day.travel_to_next.mode} • ${day.travel_to_next.time} • ${day.travel_to_next.cost_est || ''}` : '—'}</div>
-          <div class="options muted"><em>建议行程</em>：${day.options.main}； <em>备选</em>：${day.options.backup}</div>
+          <div class="travel muted">交通建議：${day.travel_to_next ? `${day.travel_to_next.mode} • ${day.travel_to_next.time} • ${day.travel_to_next.cost_est || ''}` : '—'}</div>
+          <div class="options muted"><em>建議行程</em>：${day.options.main}； <em>備選</em>：${day.options.backup}</div>
         </div>
       `;
       daysEl.appendChild(card);
@@ -183,7 +191,7 @@
         const icon = L.divIcon({ html: iconHtml, className: 'custom-number-icon', iconSize:[34,34], iconAnchor:[17,34] });
         const m = L.marker([p.lat,p.lon], { icon });
         const gmHref = `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lon}`;
-        const popupHtml = `<div style="font-weight:700;margin-bottom:6px;">${p.name}</div><div style="font-size:13px;color:#6b6f78;">${p.lat.toFixed(4)}, ${p.lon.toFixed(4)}</div><div style="margin-top:8px;"><a href="${gmHref}" target="_blank" rel="noopener">在 Google 地图中打开</a></div>`;
+        const popupHtml = `<div style="font-weight:700;margin-bottom:6px;">${p.name}</div><div style="font-size:13px;color:#6b6f78;">${p.lat.toFixed(4)}, ${p.lon.toFixed(4)}</div><div style="margin-top:8px;"><a href="${gmHref}" target="_blank" rel="noopener">在 Google 地圖中打開</a></div>`;
         m.bindPopup(popupHtml, { maxWidth:260 });
         markersGroup.addLayer(m);
         markers.push({marker:m,lat:p.lat,lon:p.lon,index:i});
@@ -245,6 +253,8 @@
     const bookingsList = document.getElementById('bookings-list');
     (data.bookings.must_book_in_advance||[]).forEach(b => { const li=document.createElement('li'); li.innerHTML=`<strong>${b.item}</strong>：${b.action}`; bookingsList.appendChild(li); });
     (data.bookings.recommended_book_ahead||[]).forEach(b => { const li=document.createElement('li'); li.innerHTML=`<em>${b.item}</em>：${b.action}`; bookingsList.appendChild(li); });
+    // add confirmed bookings to visible list
+    (data.bookings.confirmed||[]).forEach(c => { const li = document.createElement('li'); li.innerHTML = `<strong>${c.item}</strong>：${c.date} ${c.time} • ${c.party} 人 — ${c.notes||''}`; bookingsList.appendChild(li); });
     const packingList = document.getElementById('packing-list'); (data.packing.short||[]).forEach(p => { const li=document.createElement('li'); li.textContent=p; packingList.appendChild(li); });
     const tipsList = document.getElementById('tips-list'); (data.tips||[]).forEach(t => { const li=document.createElement('li'); li.textContent=t; tipsList.appendChild(li); });
 
