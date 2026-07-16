@@ -89,6 +89,20 @@
       "primary_city": "Chiang Mai, Thailand",
       "assumptions": "2 adults, mid-range budget, mixed culture/food/nature focus"
     },
+    "flights": {
+      "arrival": {
+        "date": "2026-08-13",
+        "time": "09:45",
+        "airport": "CNX (Chiang Mai International Airport)",
+        "notes": "预计入关与提取行李约 30–60 分钟；建议办理入住或行李寄存后再出行。"
+      },
+      "departure": {
+        "date": "2026-08-16",
+        "time": "09:30",
+        "airport": "CNX (Chiang Mai International Airport)",
+        "notes": "建议 06:00–06:30 起床并在 06:30 左右出发前往机场以预留安检与值机时间。"
+      }
+    },
     "overview": "融合旧城寺庙、Doi Suthep 山寺、伦理大象保育、泰式烹饪课，以及夜市与北泰美食的轻松节奏行程。",
     "days": [
       {
@@ -113,7 +127,7 @@
         "evening": [
           { "item": "晚餐与 Night Bazaar（Old City 附近）", "duration": "约 2 小时" }
         ],
-        "travel_to_next": { "mode": "本地出租/嘟嘟车/步行", "time": "多数路段 <30 分钟", "cost_est": "约 50–200 THB/次" },
+        "travel_to_next": { "mode": "本地出租/嘟嘟车/步行", "time": "多数路段 <30 分钟", "estimated": "15–30 分钟", "cost_est": "约 50–200 THB/次" },
         "coords": { "old_city_center": { "lat": 18.7878, "lon": 98.9931 } },
         "options": { "main": "旧城区寺庙 + 夜市", "backup": "酒店放松或附近水疗" }
       },
@@ -136,7 +150,7 @@
         "evening": [
           { "item": "返回清迈；休息并自由活动（换装时间请预留）", "duration": "约 2 小时" }
         ],
-        "travel_to_next": { "mode": "包车/接送", "time": "往返约 1–2 小时/次", "cost_est": "约 2,500–4,000 THB/人（含交通与门票）" },
+        "travel_to_next": { "mode": "包车/接送", "time": "往返约 1–2 小时/次", "estimated": "40–70 分钟 单程（视交通）", "cost_est": "约 2,500–4,000 THB/人（含交通与门票）" },
         "coords": { "elephant_sanctuary_area_approx": { "lat": 18.9550, "lon": 98.8780 } },
         "options": { "main": "Elephant Nature Park（需提前预订）", "backup": "较近的一日保育体验" }
       },
@@ -164,7 +178,7 @@
           { "item": "Blackitch 晚宴 — Blackitch，19:45 开始，建议着装：正式/正装", "duration": "约 2.5 小时" },
           { "item": "（可选）晚宴后短访夜市或轻松散步", "duration": "可选" }
         ],
-        "travel_to_next": { "mode": "出租/嘟嘟车/Grab", "time": "市区短途通常 15–45 分钟", "cost_est": "约 50–300 THB/次" },
+        "travel_to_next": { "mode": "出租/嘟嘟车/Grab", "time": "市区短途通常 15–45 分钟", "estimated": "15–45 分钟（视路段）", "cost_est": "约 50–300 THB/次" },
         "coords": { "doi_suthep_approx": { "lat": 18.8063, "lon": 98.9214 }, "jj_market_approx": { "lat": 18.7920, "lon": 98.9810 }, "nimman_area_approx": { "lat": 18.7958, "lon": 98.9591 }, "cmu_approx": { "lat": 18.7998, "lon": 98.9545 } },
         "options": { "main": "Doi Suthep + JJ Market + Nimman + CMU", "backup": "若时间紧张，省略 JJ Market 或把其移到第 2 天下午" }
       },
@@ -180,19 +194,19 @@
         "morning": [
           { "item": "打包并前往机场（建议至少提前 1.5–2 小时到达）", "duration": "06:30–09:30" }
         ],
-        "travel_to_next": { "mode": "出租/网约车", "time": "市中心到机场约 20–30 分钟", "cost_est": "约 150–300 THB" }
+        "travel_to_next": { "mode": "出租/网约车", "time": "市中心到机场约 20–30 分钟", "estimated": "20–30 分钟", "cost_est": "约 150–300 THB" }
       }
     ],
     "map": [
-      { "name": "Old City (中心)", "lat": 18.7878, "lon": 98.9931 },
-      { "name": "Wat Phra That Doi Suthep", "lat": 18.8063, "lon": 98.9214 },
-      { "name": "Nimmanhaemin 区", "lat": 18.7958, "lon": 98.9591 },
-      { "name": "Night Bazaar", "lat": 18.7868, "lon": 98.9998 },
-      { "name": "Elephant sanctuary (Mae Rim 附近)", "lat": 18.9550, "lon": 98.8780 },
-      { "name": "Doi Inthanon", "lat": 18.5886, "lon": 98.4876 },
-      { "name": "Warorot Market", "lat": 18.7929, "lon": 98.9993 },
-      { "name": "Chiang Mai University (CMU)", "lat": 18.7998, "lon": 98.9545, "note": "校园参观/咖啡馆" },
-      { "name": "JJ Market（周末市集，仅周末开放）", "lat": 18.7920, "lon": 98.9810, "note": "周末开放；请以当天信息为准" }
+      { "name": "Old City (中心)", "lat": 18.7878, "lon": 98.9931, "gm_link": "https://www.google.com/maps/search/?api=1&query=18.7878,98.9931", "note": "旧城区寺庙与商店集中" },
+      { "name": "Wat Phra That Doi Suthep", "lat": 18.8063, "lon": 98.9214, "gm_link": "https://www.google.com/maps/search/?api=1&query=18.8063,98.9214" },
+      { "name": "Nimmanhaemin 区", "lat": 18.7958, "lon": 98.9591, "gm_link": "https://www.google.com/maps/search/?api=1&query=18.7958,98.9591" },
+      { "name": "Night Bazaar", "lat": 18.7868, "lon": 98.9998, "gm_link": "https://www.google.com/maps/search/?api=1&query=18.7868,98.9998" },
+      { "name": "Elephant sanctuary (Mae Rim 附近)", "lat": 18.9550, "lon": 98.8780, "gm_link": "https://www.google.com/maps/search/?api=1&query=18.9550,98.8780", "note": "建议提前预订接送" },
+      { "name": "Doi Inthanon", "lat": 18.5886, "lon": 98.4876, "gm_link": "https://www.google.com/maps/search/?api=1&query=18.5886,98.4876" },
+      { "name": "Warorot Market", "lat": 18.7929, "lon": 98.9993, "gm_link": "https://www.google.com/maps/search/?api=1&query=18.7929,98.9993" },
+      { "name": "Chiang Mai University (CMU)", "lat": 18.7998, "lon": 98.9545, "gm_link": "https://www.google.com/maps/search/?api=1&query=18.7998,98.9545", "note": "校园参观/咖啡馆" },
+      { "name": "JJ Market（周末市集，仅周末开放）", "lat": 18.7920, "lon": 98.9810, "gm_link": "https://www.google.com/maps/search/?api=1&query=18.7920,98.9810", "note": "周末开放；请以当天信息为准" }
     ],
     "hotels": {
       "suggestions_area": "Old City 或 Nimmanhaemin",
@@ -251,6 +265,15 @@
     document.getElementById('trip-dates').textContent = data.meta.start_date + ' — ' + data.meta.end_date + ' • 共 ' + data.meta.days + ' 天';
     document.getElementById('trip-overview').textContent = data.overview;
 
+    // Flights summary (insert under header if present)
+    if (data.flights) {
+      const header = document.querySelector('.hero-inner');
+      const flightsEl = document.createElement('div');
+      flightsEl.className = 'flights muted small';
+      flightsEl.innerHTML = `<div><strong>抵达：</strong>${data.flights.arrival.date} ${data.flights.arrival.time} — ${data.flights.arrival.airport}</div><div><strong>离开：</strong>${data.flights.departure.date} ${data.flights.departure.time} — ${data.flights.departure.airport}</div>`;
+      header.appendChild(flightsEl);
+    }
+
     const daysEl = document.getElementById('days');
     data.days.forEach(day => {
       const card = document.createElement('article');
@@ -270,7 +293,7 @@
             <div><strong>下午</strong><ul>${(day.afternoon||[]).map(i => `<li>${i.item} <span class="dur muted">${i.duration||''}</span></li>`).join('')}</ul></div>
             <div><strong>晚上</strong><ul>${(day.evening||[]).map(i => `<li>${i.item} <span class="dur muted">${i.duration||''}</span></li>`).join('')}</ul></div>
           </div>
-          <div class="travel muted">交通建议：${day.travel_to_next ? `${day.travel_to_next.mode} • ${day.travel_to_next.time} • ${day.travel_to_next.cost_est || ''}` : '—'}</div>
+          <div class="travel muted">交通建议：${day.travel_to_next ? `${day.travel_to_next.mode} • ${day.travel_to_next.time || ''}${day.travel_to_next.estimated ? ' • 估计行程：' + day.travel_to_next.estimated : ''} • ${day.travel_to_next.cost_est || ''}` : '—'}</div>
           <div class="options muted"><em>建议行程</em>：${day.options.main}； <em>备选</em>：${day.options.backup}</div>
         </div>
       `;
@@ -281,7 +304,7 @@
     data.map.forEach(place => {
       const a = document.createElement('a');
       a.className = 'map-pin';
-      a.href = `https://www.google.com/maps/search/?api=1&query=${place.lat},${place.lon}`;
+      a.href = place.gm_link || `https://www.google.com/maps/search/?api=1&query=${place.lat},${place.lon}`;
       a.target = '_blank';
       a.rel = 'noopener';
       a.innerHTML = `<strong>${place.name}</strong><div class="coords muted small">${place.lat.toFixed(4)}, ${place.lon.toFixed(4)}</div>`;
