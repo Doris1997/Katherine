@@ -13,6 +13,10 @@
 
   <!-- 自定义覆盖样式，模拟原模板视觉风格 -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-sA+e2gKk6bZ3o2sG6QpM7wQkFQp0j1w2zHc2g9+g9yk=" crossorigin=""/>
 </head>
 <body>
   <main class="page-root">
@@ -44,9 +48,13 @@
     <section id="map" class="map" aria-label="地图与地点">
       <h2>地图与地点</h2>
       <div id="map-container" class="map-container">
+        <!-- 交互式 Leaflet 地图 -->
+        <div id="leaflet-map" role="region" aria-label="交互式地图"></div>
+
+        <!-- 保留地点卡片列表（点击会打开对应 marker popup） -->
         <div id="map-list" class="map-list"></div>
       </div>
-      <p class="muted small">点击地点名称可在 Google 地图中打开。</p>
+      <p class="muted small">点击地点名称可在 Google 地图中打开，或点击地图标记查看详情。</p>
     </section>
 
     <section id="hotel-restaurants" class="grid-2" aria-label="酒店与餐厅">
@@ -104,7 +112,7 @@
           { "item": "旧城区轻徒步，参观 Wat Phra Singh", "duration": "约 1 小时" }
         ],
         "afternoon": [
-          { "item": "午餐：品尝 Khao Soi（北泰招牌）", "duration": "约 1 小时" },
+          { "item": "午餐：品尝 Khao Soi（北泰招牌）", "duration": "约 1 小���" },
           { "item": "参观 Wat Chedi Luang 与护城河周边，可选自行车或嘟嘟车短程游览", "duration": "约 2 小时" }
         ],
         "evening": [
@@ -316,6 +324,76 @@
       const li = document.createElement('li');
       li.textContent = t;
       tipsList.appendChild(li);
+    });
+
+  })();
+  </script>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44c=" crossorigin=""></script>
+
+  <script>
+  // 初始化 Leaflet 地图并绑定到页面内嵌的 trip-data
+  (function initLeafletMap(){
+    if (typeof L === 'undefined') return; // Leaflet 未加载则安全退出
+
+    const raw = document.getElementById('trip-data') && document.getElementById('trip-data').textContent;
+    if (!raw) return;
+    const trip = JSON.parse(raw);
+    const mapData = trip.map || [];
+    if (!mapData.length) return;
+
+    // 创建地图
+    const first = mapData[0];
+    const map = L.map('leaflet-map', {
+      center: [first.lat, first.lon],
+      zoom: 12,
+      tap: false,
+      zoomControl: true,
+      attributionControl: false
+    });
+
+    // OSM 瓦片
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // 添加 markers 并收集 bounds
+    const markers = [];
+    const bounds = [];
+    mapData.forEach(p => {
+      const marker = L.marker([p.lat, p.lon]).addTo(map);
+      const gmHref = `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lon}`;
+      const popupHtml = `<div style="font-weight:700;margin-bottom:6px;">${p.name}</div>
+                         <div style="font-size:13px;color:#6b6f78;">${p.lat.toFixed(4)}, ${p.lon.toFixed(4)}</div>
+                         <div style="margin-top:8px;"><a href="${gmHref}" target="_blank" rel="noopener">在 Google 地图中打开</a></div>`;
+      marker.bindPopup(popupHtml, { maxWidth: 260, closeButton: true });
+      markers.push({ marker, lat: p.lat, lon: p.lon });
+      bounds.push([p.lat, p.lon]);
+    });
+
+    if (bounds.length > 1) {
+      map.fitBounds(bounds, { padding: [36,36] });
+    } else {
+      map.setView([first.lat, first.lon], 13);
+    }
+
+    // 点击列表项时对齐打开 popup
+    document.querySelectorAll('.map-pin').forEach(el => {
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        const href = this.getAttribute('href');
+        if (!href) return;
+        const m = href.match(/query=([^,]+),([^&]+)/);
+        if (!m) return;
+        const lat = parseFloat(m[1]), lon = parseFloat(m[2]);
+        map.setView([lat, lon], 15, { animate: true });
+        // 找到最接近的 marker 并打开 popup
+        const found = markers.find(mk => Math.abs(mk.lat - lat) < 1e-6 && Math.abs(mk.lon - lon) < 1e-6);
+        if (found) found.marker.openPopup();
+      });
     });
 
   })();
