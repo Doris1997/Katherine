@@ -1,0 +1,73 @@
+/* Custom overrides that work with MVP.css to match the template look:
+   - Accent color, card spacing, mobile friendliness, small visual tweaks.
+   - Keep overrides minimal so MVP styles remain primary.
+*/
+
+:root{
+  --accent: #ff6f3c; /* orange accent like the template */
+  --muted: #6b7280;
+  --card-radius: 12px;
+}
+
+/* Make header more prominent like the template */
+header {
+  background: linear-gradient(180deg, rgba(255,111,60,0.08), rgba(255,111,60,0.02));
+  padding: 18px;
+  border-radius: var(--card-radius);
+  margin: 12px 0;
+}
+header h1 { margin: 0 0 6px; font-size: 20px; }
+header p { margin: 0; color: var(--muted); }
+
+/* Meta block as three columns on wider screens */
+section.meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+section.meta > div { padding:10px; border-radius:10px; background: #fff; box-shadow: 0 6px 18px rgba(15,23,42,0.03); }
+
+/* Day article card styling */
+#days article {
+  background: #fff;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.03);
+  border: 1px solid rgba(15,23,42,0.03);
+}
+.day-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 8px; }
+.day-grid h4 { margin: 6px 0 4px; font-size: 14px; }
+
+/* Map list appearance */
+.map-list { display:flex; flex-direction:column; gap:8px; margin-top:8px; }
+.map-list a { display:block; padding:10px; border-radius:10px; background:#fff; text-decoration:none; color:inherit; border:1px solid rgba(15,23,42,0.04); }
+
+/* Grid for hotels/restaurants side-by-side on larger screens */
+.grid-2 { display:block; margin-top:12px; gap:12px; }
+.grid-2 article { padding:12px; border-radius:12px; background:#fff; box-shadow:0 6px 18px rgba(15,23,42,0.03); }
+@media(min-width:700px){
+  .grid-2 { display:grid; grid-template-columns: 1fr 1fr; }
+  .day-grid { grid-template-columns: repeat(3,1fr); }
+  section.meta { grid-template-columns: repeat(3,1fr); }
+}
+
+/* Muted utility */
+.muted { color: var(--muted); }
+
+/* Accent link color */
+a { color: var(--accent); }
+a:hover { opacity: 0.9; }
+
+/* Small text utility */
+.small { font-size: 12px; color: var(--muted); }
+
+/* Make lists slightly indented and comfortable to read */
+ul { margin-left: 16px; }
+
+/* Keep body padding small for mobile look */
+body { padding: 10px; background: #fafafa; }
+
+/* Subtle radius & shadow for footer */
+footer { margin-top: 14px; text-align:center; color:var(--muted); font-size:13px; }
