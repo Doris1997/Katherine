@@ -1,302 +1,320 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Chiang Mai 4-day trip — 13 Aug to 16 Aug</title>
+  <title>清迈 4 天行程 — 8月13日 到 8月16日</title>
 
-  <!-- MVP.css (classless framework used by the template) -->
+  <!-- 使用 MVP.css 作为基础样式（与模板一致的 classless 框架） -->
   <link rel="stylesheet" href="https://unpkg.com/mvp.css">
 
-  <!-- Custom overrides to match the template's palette/spacing -->
+  <!-- 自定义覆盖样式，模拟原模板视觉风格 -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main>
-    <header>
-      <h1 id="trip-title">Chiang Mai — 4 days</h1>
-      <p id="trip-dates">13 Aug — 16 Aug, 2026 • 4 days</p>
-      <p id="trip-overview" class="muted">Short, culture-forward 4-day Chiang Mai trip mixing Old City temples, a mountain temple visit, an ethical elephant sanctuary or Doi Inthanon nature day, a Thai cooking class, and evenings sampling northern cuisine and night markets.</p>
+  <main class="page-root">
+    <header class="hero">
+      <div class="hero-inner">
+        <h1 id="trip-title">清迈 4 天短程行程</h1>
+        <p id="trip-dates">2026-08-13 — 2026-08-16 • 共 4 天</p>
+        <p id="trip-overview" class="muted">融合旧城寺庙、Doi Suthep 山寺、道德型大象保护区或 Doi Inthanon 国家公园、泰式烹饪课，以及夜市与北泰美食的轻松节奏行程。</p>
+      </div>
     </header>
 
-    <section class="meta">
-      <div><strong>City:</strong> Chiang Mai, Thailand</div>
-      <div><strong>Style:</strong> Culture / Food / Nature</div>
-      <div><strong>Assumptions:</strong> 2 adults, mid-range</div>
+    <nav class="site-nav">
+      <a href="#days">行程日程</a>
+      <a href="#map">地图</a>
+      <a href="#hotel-restaurants">酒店 / 餐厅</a>
+    </nav>
+
+    <section class="meta" aria-label="旅程信息">
+      <div><strong>城市</strong><div>Chiang Mai, Thailand</div></div>
+      <div><strong>风格</strong><div>文化 / 美食 / 自然</div></div>
+      <div><strong>假设</strong><div>2 位成人，中等预算</div></div>
     </section>
 
-    <!-- Days: use article/section so MVP.css treats them as cards -->
-    <section id="days">
-      <!-- Rendered by embedded JSON + script -->
+    <section id="days" class="days" aria-label="每日行程">
+      <!-- 由脚本渲染每日卡片 -->
     </section>
 
-    <section id="map">
-      <h2>Map & Pins</h2>
-      <div id="map-list" class="map-list"></div>
-      <p class="muted small">Tap a place to open in Google Maps.</p>
+    <section id="map" class="map" aria-label="地图与地点">
+      <h2>地图与地点</h2>
+      <div id="map-container" class="map-container">
+        <!-- 如果需要，我可以把这里换成 Leaflet 地图并添加标记 -->
+        <div id="map-list" class="map-list"></div>
+      </div>
+      <p class="muted small">点击地点名称可在 Google 地图中打开。</p>
     </section>
 
-    <section id="hotel-restaurants" class="grid-2">
+    <section id="hotel-restaurants" class="grid-2" aria-label="酒店与餐厅">
       <article>
-        <h3>Hotel picks</h3>
+        <h3>酒店推荐</h3>
         <ul id="hotel-list"></ul>
       </article>
       <article>
-        <h3>Restaurants</h3>
+        <h3>餐厅推荐</h3>
         <ul id="restaurant-list"></ul>
       </article>
     </section>
 
-    <section id="bookings">
-      <h3>Bookings</h3>
+    <section id="bookings" aria-label="预订建议">
+      <h3>预订提醒</h3>
       <ul id="bookings-list"></ul>
     </section>
 
-    <section id="packing">
-      <h3>Packing</h3>
+    <section id="packing" aria-label="打包清单">
+      <h3>打包清单</h3>
       <ul id="packing-list"></ul>
     </section>
 
-    <section id="tips">
-      <h3>Practical tips</h3>
+    <section id="tips" aria-label="实用提示">
+      <h3>实用提示</h3>
       <ul id="tips-list"></ul>
     </section>
 
-    <footer>
-      <p class="muted small">Generated itinerary — edit the JSON below to update content.</p>
+    <footer class="footer">
+      <p class="muted small">行程由 AI 生成。如需调整节奏、预算或添加地图/图片，告诉我即可。</p>
     </footer>
   </main>
 
-  <!-- Embedded itinerary JSON (edit here to change content) -->
+  <!-- 嵌入的行程 JSON（如需修改文本，请编辑此处） -->
   <script id="trip-data" type="application/json">
   {
     "meta": {
-      "trip_name": "Chiang Mai 4-day trip",
+      "trip_name": "清迈 4 天短程行程",
       "start_date": "2026-08-13",
       "end_date": "2026-08-16",
       "nights": 3,
       "days": 4,
       "primary_city": "Chiang Mai, Thailand",
-      "assumptions": "2 adults, mid-range budget, mixed culture/food/nature focus, travel within Chiang Mai by taxi/songthaew/ride-hail."
+      "assumptions": "2 adults, mid-range budget, mixed culture/food/nature focus"
     },
-    "overview": "Short, culture-forward 4-day Chiang Mai trip mixing Old City temples, a mountain temple visit, an ethical elephant sanctuary or Doi Inthanon nature day, a Thai cooking class, and evenings sampling northern cuisine and night markets. Designed for moderate pace with time to relax and soak up Lanna atmosphere.",
+    "overview": "融合旧城寺庙、Doi Suthep 山寺、道德型大象保护区或 Doi Inthanon 国家公园、泰式烹饪课，以及夜市与北泰美食的轻松节奏行程。",
     "days": [
       {
         "day_number": 1,
         "date": "2026-08-13",
-        "title": "Arrival + Old City intro",
-        "summary": "Arrive, check-in, explore Old City temples and try northern dishes; evening at Night Bazaar.",
+        "title": "抵达 · 旧城区漫步",
+        "summary": "抵达并入住酒店，游览 Old City 的主要寺庙，傍晚逛 Night Bazaar。",
         "morning": [
-          { "item": "Arrive Chiang Mai & hotel check-in (aim for early check-in if possible)", "duration": "1–2h" },
-          { "item": "Light walk around Old City to get oriented; visit Wat Phra Singh", "duration": "1h" }
+          { "item": "抵达 Chiang Mai 并入住酒店（如需提早入住房可事先联系酒店）", "duration": "1–2 小时" },
+          { "item": "旧城区轻徒步，参观 Wat Phra Singh", "duration": "约 1 小时" }
         ],
         "afternoon": [
-          { "item": "Lunch: taste khao soi (local specialty)", "duration": "1h" },
-          { "item": "Visit Wat Chedi Luang and city moat area; optional cycling/ tuk-tuk tour", "duration": "2h" }
+          { "item": "午餐：品尝 Khao Soi（北泰招牌）", "duration": "约 1 小时" },
+          { "item": "参观 Wat Chedi Luang 与护城河周边，可选自行车或嘟嘟车短程游览", "duration": "约 2 小时" }
         ],
         "evening": [
-          { "item": "Dinner near Old City (northern cuisine)", "duration": "1.5h" },
-          { "item": "Stroll Chiang Mai Night Bazaar (shopping & street food)", "duration": "1.5–2h" }
+          { "item": "旧城区附近晚餐（北泰风味）", "duration": "约 1.5 小时" },
+          { "item": "逛 Chiang Mai Night Bazaar（街头小吃与手工艺品）", "duration": "约 1.5–2 小时" }
         ],
-        "travel_to_next": { "mode": "local taxi / tuk-tuk / walk", "time": "mostly <30 min", "cost_est": "50–200 THB per trip" },
+        "travel_to_next": { "mode": "本地出租/嘟嘟车/步行", "time": "多数路段 <30 分钟", "cost_est": "约 50–200 THB/次" },
         "coords": { "old_city_center": { "lat": 18.7878, "lon": 98.9931 }, "wat_phra_singh_approx": { "lat": 18.7893, "lon": 98.9853 } },
-        "photo_keyword": "Old City temple golden chedi",
-        "options": { "main": "Explore Old City temples + Night Bazaar", "backup": "Relax at hotel and visit a nearby spa" }
+        "photo_keyword": "旧城寺庙 金塔",
+        "options": { "main": "旧城区寺庙 + 夜市", "backup": "酒店放松或附近水疗" }
       },
       {
         "day_number": 2,
         "date": "2026-08-14",
-        "title": "Doi Suthep & Nimmanhaemin",
-        "summary": "Morning trip to Doi Suthep for views and temple visit; afternoon/evening exploring Nimman’s cafes and nightlife.",
+        "title": "Doi Suthep · Nimmanhaemin 区",
+        "summary": "早上上山看 Doi Suthep 寺庙与展望，下午在 Nimman 咖啡馆与小店放松。",
         "morning": [
-          { "item": "Head up to Wat Phra That Doi Suthep (songthaew/taxi or private car). Temple visit and viewpoint", "duration": "3–4h" }
+          { "item": "前往 Wat Phra That Doi Suthep（包车或拼车／嘟嘟车），参观并观景", "duration": "约 3–4 小时" }
         ],
         "afternoon": [
-          { "item": "Return to city; lunch near Nimmanhaemin", "duration": "1h" },
-          { "item": "Explore Nimmanhaemin district: galleries, cafes, boutiques", "duration": "2–3h" }
+          { "item": "返回市区，在 Nimmanhaemin 附近用午餐", "duration": "约 1 小时" },
+          { "item": "逛 Nimmanhaemin：画廊、咖啡馆与独立小店", "duration": "约 2–3 小时" }
         ],
         "evening": [
-          { "item": "Dinner in Nimman (modern Thai / fusion)", "duration": "1.5h" },
-          { "item": "Optional evening visit to a rooftop bar or live-music venue", "duration": "1–2h" }
+          { "item": "在 Nimman 用晚餐（现代泰或融合菜）", "duration": "约 1.5 小时" },
+          { "item": "可选屋顶酒吧或小型现场音乐场所", "duration": "约 1–2 小时" }
         ],
-        "travel_to_next": { "mode": "taxi/songthaew", "time": "city→Doi Suthep ~30–50 min (depending on traffic)", "cost_est": "200–500 THB one-way" },
+        "travel_to_next": { "mode": "出租/嘟嘟车", "time": "市区→Doi Suthep 约 30–50 分钟（视交通）", "cost_est": "约 200–500 THB 单程" },
         "coords": { "doi_suthep_approx": { "lat": 18.8063, "lon": 98.9214 }, "nimman_area_approx": { "lat": 18.7958, "lon": 98.9591 } },
-        "photo_keyword": "golden temple & city view at sunrise",
-        "options": { "main": "Doi Suthep + Nimman", "backup": "Botanical Garden or small local museum if weather poor" }
+        "photo_keyword": "金色寺庙 山景",
+        "options": { "main": "Doi Suthep + Nimman", "backup": "植物园或小型本地博物馆" }
       },
       {
         "day_number": 3,
         "date": "2026-08-15",
-        "title": "Nature day — Elephant sanctuary or Doi Inthanon",
-        "summary": "Full-day ethical wildlife or mountain national-park experience (choose either an ethical elephant sanctuary or Doi Inthanon national park).",
+        "title": "自然一日游：道德大象保育或 Doi Inthanon",
+        "summary": "整天的自然体验：伦理型大象保护区（不骑乘）或 Doi Inthanon 国家公园短途徒步与瀑布。",
         "morning": [
-          { "item": "Early pick-up for full-day tour (sanctuary) or Doi Inthanon trip", "duration": "transfer 1–2h depending on site" }
+          { "item": "早起接送前往保护区或 Doi Inthanon", "duration": "车程视目的地 1–2 小时" }
         ],
         "afternoon": [
-          { "item": "Activities at sanctuary: feeding, observing rescued elephants (no riding) OR Doi Inthanon: waterfalls, King & Queen pagodas, short hikes", "duration": "4–6h" }
+          { "item": "保护区活动：喂食、观察恢复中的大象（无骑乘） 或 Doi Inthanon：瀑布、国王／王后塔、短程徒步", "duration": "约 4–6 小时" }
         ],
         "evening": [
-          { "item": "Return to Chiang Mai; relaxed dinner and optional Thai massage", "duration": "2h" }
+          { "item": "返回清迈；晚餐与放松（可安排泰式按摩）", "duration": "约 2 小时" }
         ],
-        "travel_to_next": { "mode": "organized tour van / private car", "time": "full day", "cost_est": "sanctuary 2,500–4,000 THB pp; Doi Inthanon 1,800–3,000 THB pp (includes guide/entry/transport)" },
+        "travel_to_next": { "mode": "旅行社面包车／包车", "time": "全天", "cost_est": "保护区约 2,500–4,000 THB/人；Doi Inthanon 约 1,800–3,000 THB/人（含交通与门票）" },
         "coords": { "elephant_sanctuary_area_approx": { "lat": 18.9550, "lon": 98.8780 }, "doi_inthanon_approx": { "lat": 18.5886, "lon": 98.4876 } },
-        "photo_keyword": "elephant rescue sanctuary or mountain waterfall",
-        "options": { "main": "Elephant Nature Park (ethical) — must book in advance", "backup": "Doi Inthanon day trip (scenic, cooler, hiking)" }
+        "photo_keyword": "大象保护区 或 山中瀑布",
+        "options": { "main": "Elephant Nature Park（需提前预订）", "backup": "Doi Inthanon 一日游（较凉爽，适合徒步）" }
       },
       {
         "day_number": 4,
         "date": "2026-08-16",
-        "title": "Cooking class, markets & departure",
-        "summary": "Learn Thai cooking in a half-day class, visit a local market for souvenirs, and prepare for departure.",
+        "title": "烹饪课 · 市场购物 · 离开",
+        "summary": "半天烹饪课（含市场参观与午餐），下午市场购物并前往机场离开。",
         "morning": [
-          { "item": "Thai cooking class (market visit + hands-on lesson + lunch)", "duration": "3.5–4h" }
+          { "item": "参加泰式烹饪课（含市场采买与实作）", "duration": "约 3.5–4 小时" }
         ],
         "afternoon": [
-          { "item": "Last-minute shopping at Warorot Market or boutique shops; check-out", "duration": "2h" },
-          { "item": "Transfer to airport / next destination", "duration": "allow 1–2h depending on flight" }
+          { "item": "前往 Warorot 市场或精品店购买纪念品；办理退房", "duration": "约 2 小时" },
+          { "item": "前往机场／下一目的地（请预留足够时间）", "duration": "视航班而定" }
         ],
         "evening": [
-          { "item": "If time allows, casual early dinner; otherwise airport transfer", "duration": "as required" }
+          { "item": "如时间允许，可在出发前轻松用餐；否则前往机场" }
         ],
-        "travel_to_next": { "mode": "taxi or ride-hail to airport", "time": "20–30 min from Old City", "cost_est": "150–300 THB" },
+        "travel_to_next": { "mode": "出租或网约车", "time": "市中心到机场约 20–30 分钟", "cost_est": "约 150–300 THB" },
         "coords": { "warorot_market_approx": { "lat": 18.7929, "lon": 98.9993 } },
-        "photo_keyword": "Thai cooking class with colorful ingredients",
-        "options": { "main": "Cooking class + market", "backup": "Half-day bicycle tour if you prefer more active morning" }
+        "photo_keyword": "色彩丰富的市场 食材与烹饪课堂",
+        "options": { "main": "烹饪课 + 市场购物", "backup": "半天自行车游" }
       }
     ],
     "map": [
-      { "name": "Old City (center)", "lat": 18.7878, "lon": 98.9931 },
-      { "name": "Wat Phra That Doi Suthep (approx)", "lat": 18.8063, "lon": 98.9214 },
-      { "name": "Nimmanhaemin district (approx)", "lat": 18.7958, "lon": 98.9591 },
-      { "name": "Night Bazaar (approx)", "lat": 18.7868, "lon": 98.9998 },
-      { "name": "Elephant sanctuary area (Mae Rim - approx)", "lat": 18.9550, "lon": 98.8780 },
-      { "name": "Doi Inthanon (approx)", "lat": 18.5886, "lon": 98.4876 },
-      { "name": "Warorot Market (approx)", "lat": 18.7929, "lon": 98.9993 }
+      { "name": "Old City (中心)", "lat": 18.7878, "lon": 98.9931 },
+      { "name": "Wat Phra That Doi Suthep", "lat": 18.8063, "lon": 98.9214 },
+      { "name": "Nimmanhaemin 区", "lat": 18.7958, "lon": 98.9591 },
+      { "name": "Night Bazaar", "lat": 18.7868, "lon": 98.9998 },
+      { "name": "Elephant sanctuary (Mae Rim 附近)", "lat": 18.9550, "lon": 98.8780 },
+      { "name": "Doi Inthanon", "lat": 18.5886, "lon": 98.4876 },
+      { "name": "Warorot Market", "lat": 18.7929, "lon": 98.9993 }
     ],
     "hotels": {
-      "suggestions_area": "Old City or Nimmanhaemin (for convenience & dining)",
+      "suggestions_area": "Old City 或 Nimmanhaemin",
       "picks": [
-        { "type": "budget", "example": "Comfort guesthouse / boutique hostel (Old City)", "price_night_est": "700–1,200 THB" },
-        { "type": "mid-range", "example": "Nimman / Old City boutique hotel (e.g., U Nimman or similar)", "price_night_est": "1,800–3,000 THB" },
-        { "type": "splurge", "example": "Luxury riverside or heritage hotel (Tamarind-village style)", "price_night_est": "3,500–7,000+ THB" }
+        { "type": "经济型", "example": "舒适旅舍 / 精品民宿（Old City）", "price_night_est": "700–1,200 THB" },
+        { "type": "中档", "example": "Nimman / Old City 精品酒店（如 U Nimman 类似）", "price_night_est": "1,800–3,000 THB" },
+        { "type": "奢华", "example": "河畔或传统风格酒店（Tamarind-village 风格）", "price_night_est": "3,500–7,000+ THB" }
       ]
     },
     "restaurants": {
       "picks": [
-        { "name": "Khao Soi local shop (try Khao Soi Khun Yai or similar)", "category": "street/local", "price_est": "60–150 THB per person" },
-        { "name": "Huen Phen (Northern Thai specialties)", "category": "mid-range", "price_est": "150–350 THB per person" },
-        { "name": "SP Chicken or local rotisserie", "category": "casual", "price_est": "80–200 THB per person" },
-        { "name": "Nimman cafes & rooftop bars", "category": "modern/cafe", "price_est": "120–400 THB per person" }
+        { "name": "Khao Soi 小店（例如 Khao Soi Khun Yai）", "category": "街头 / 本地", "price_est": "60–150 THB/人" },
+        { "name": "Huen Phen（北泰传统料理）", "category": "中档", "price_est": "150–350 THB/人" },
+        { "name": "SP Chicken（烤鸡）", "category": "随意用餐", "price_est": "80–200 THB/人" },
+        { "name": "Nimman 咖啡馆与屋顶酒吧", "category": "现代 / 咖啡", "price_est": "120–400 THB/人" }
       ]
     },
     "bookings": {
       "must_book_in_advance": [
-        { "item": "Elephant sanctuary (ethical-facing sanctuaries sell out quickly)", "action": "Book 2–8 weeks in advance; confirm pickup location/time" },
-        { "item": "Doi Inthanon or private full-day tours", "action": "Book earlier in high season or weekends" },
-        { "item": "Popular cooking classes", "action": "Reserve a spot 1–2 weeks ahead" }
+        { "item": "大象保护区（伦理型）", "action": "建议提前 2–8 周预订，确认接送时间与地点" },
+        { "item": "Doi Inthanon 或 包车一日游", "action": "旺季或周末建议提前预订" },
+        { "item": "热门烹饪课程", "action": "建议提前 1–2 周预订" }
       ],
       "recommended_book_ahead": [
-        { "item": "Temple guided tour if you want an English guide", "action": "Book day before" },
-        { "item": "Hotel if traveling on holiday weekends", "action": "Reserve now" }
+        { "item": "如需英文导览的寺庙导览", "action": "建议提前一天预约" },
+        { "item": "节假日/周末的酒店", "action": "建议提前预订" }
       ]
     },
     "packing": {
       "short": [
-        "Breathable clothes, light rain jacket (Aug = rainy season)",
-        "Comfortable walking shoes / sandals",
-        "Modest clothing for temples (shoulders & knees covered)",
-        "Insect repellent & sunscreen",
-        "Universal adapter, phone charger, small daypack",
-        "Passport copy, any medications, water bottle"
+        "透气衣物、轻便雨衣（8 月为雨季）",
+        "舒适的步行鞋或凉鞋",
+        "寺庙礼节服装（肩膀与膝盖需遮蔽）",
+        "防蚊液与防晒霜",
+        "通用插座、手机充电器、小背包",
+        "护照复印件、常用药物、可装水的水瓶"
       ]
     },
     "tips": [
-      "August is rainy season: expect short heavy showers—plan morning activities for outdoors and keep afternoons flexible.",
-      "Respect temple dress codes (no shorts or sleeveless tops inside main sanctuaries).",
-      "Use ride-hail apps or negotiated songthaew fares for short trips; set aside cash for markets.",
-      "Tipping is appreciated but modest; round up taxi fares and 20–50 THB at restaurants when happy."
+      "8 月为雨季：常有短时强降雨，建议将户外行程排在上午，并为下午留弹性。",
+      "尊重寺庙着装规定（请勿穿无袖或短裤进入主要殿堂）。",
+      "使用网约车或谈价的嘟嘟车短途出行；市场多使用现金。",
+      "小费为礼貌表示，可将车费凑整或餐厅 20–50 THB 视情况给予。"
     ]
   }
   </script>
 
   <script>
-  // Renderer that follows MVP.css semantic structure
+  // 渲染器：读取 JSON 并生成语义化的 HTML 卡片（中文界面，地名保留英文/本地名）
   (function(){
     const data = JSON.parse(document.getElementById('trip-data').textContent);
 
     document.getElementById('trip-title').textContent = data.meta.trip_name;
-    document.getElementById('trip-dates').textContent = data.meta.start_date + ' — ' + data.meta.end_date + ' • ' + data.meta.days + ' days';
+    document.getElementById('trip-dates').textContent = data.meta.start_date + ' — ' + data.meta.end_date + ' • 共 ' + data.meta.days + ' 天';
     document.getElementById('trip-overview').textContent = data.overview;
 
     const daysEl = document.getElementById('days');
     data.days.forEach(day => {
-      const art = document.createElement('article');
-      art.innerHTML = `
-        <h2>Day ${day.day_number} — ${day.title}</h2>
-        <p class="muted small">${day.date} · ${day.summary}</p>
-        <div class="day-grid">
+      const card = document.createElement('article');
+      card.className = 'day-card';
+      card.innerHTML = `
+        <header class="day-header">
+          <div class="day-badge">第 ${day.day_number} 天</div>
           <div>
-            <h4>Morning</h4>
-            <ul>${day.morning.map(m => `<li>${m.item} ${m.duration ? ` — <span class="muted small">${m.duration}</span>` : ''}</li>`).join('')}</ul>
+            <h3 class="day-title">${day.title}</h3>
+            <div class="day-date muted">${day.date}</div>
+            <div class="day-summary muted">${day.summary}</div>
           </div>
-          <div>
-            <h4>Afternoon</h4>
-            <ul>${day.afternoon.map(m => `<li>${m.item} ${m.duration ? ` — <span class="muted small">${m.duration}</span>` : ''}</li>`).join('')}</ul>
+        </header>
+        <div class="day-body">
+          <div class="parts">
+            <div><strong>上午</strong><ul>${(day.morning||[]).map(i => `<li>${i.item} <span class="dur muted">${i.duration||''}</span></li>`).join('')}</ul></div>
+            <div><strong>下午</strong><ul>${(day.afternoon||[]).map(i => `<li>${i.item} <span class="dur muted">${i.duration||''}</span></li>`).join('')}</ul></div>
+            <div><strong>晚上</strong><ul>${(day.evening||[]).map(i => `<li>${i.item} <span class="dur muted">${i.duration||''}</span></li>`).join('')}</ul></div>
           </div>
-          <div>
-            <h4>Evening</h4>
-            <ul>${day.evening.map(m => `<li>${m.item} ${m.duration ? ` — <span class="muted small">${m.duration}</span>` : ''}</li>`).join('')}</ul>
-          </div>
+          <div class="travel muted">交通建议：${day.travel_to_next ? `${day.travel_to_next.mode} • ${day.travel_to_next.time} • ${day.travel_to_next.cost_est || ''}` : '—'}</div>
+          <div class="options muted"><em>建议行程</em>：${day.options.main}； <em>备选</em>：${day.options.backup}</div>
         </div>
-        <p class="muted small">Transport: ${day.travel_to_next ? `${day.travel_to_next.mode} • ${day.travel_to_next.time} • ${day.travel_to_next.cost_est || ''}` : '—'}</p>
       `;
-      daysEl.appendChild(art);
+      daysEl.appendChild(card);
     });
 
     const mapList = document.getElementById('map-list');
-    data.map.forEach(p => {
+    data.map.forEach(place => {
       const a = document.createElement('a');
-      a.href = `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lon}`;
+      a.className = 'map-pin';
+      a.href = `https://www.google.com/maps/search/?api=1&query=${place.lat},${place.lon}`;
       a.target = '_blank';
       a.rel = 'noopener';
-      a.textContent = p.name + ' — ' + p.lat.toFixed(4) + ', ' + p.lon.toFixed(4);
+      a.innerHTML = `<strong>${place.name}</strong><div class="coords muted small">${place.lat.toFixed(4)}, ${place.lon.toFixed(4)}</div>`;
       mapList.appendChild(a);
     });
 
-    data.hotels.picks.forEach(h => {
+    const hotelList = document.getElementById('hotel-list');
+    (data.hotels.picks||[]).forEach(h => {
       const li = document.createElement('li');
-      li.textContent = `${h.type} — ${h.example} (${h.price_night_est})`;
-      document.getElementById('hotel-list').appendChild(li);
+      li.textContent = `${h.type} — ${h.example} （${h.price_night_est}）`;
+      hotelList.appendChild(li);
     });
 
-    data.restaurants.picks.forEach(r => {
+    const restList = document.getElementById('restaurant-list');
+    (data.restaurants.picks||[]).forEach(r => {
       const li = document.createElement('li');
       li.textContent = `${r.name} — ${r.category} • ${r.price_est}`;
-      document.getElementById('restaurant-list').appendChild(li);
+      restList.appendChild(li);
     });
 
-    data.bookings.must_book_in_advance.forEach(b => {
+    const bookingsList = document.getElementById('bookings-list');
+    (data.bookings.must_book_in_advance||[]).forEach(b => {
       const li = document.createElement('li');
-      li.innerHTML = `<strong>${b.item}</strong>: ${b.action}`;
-      document.getElementById('bookings-list').appendChild(li);
+      li.innerHTML = `<strong>${b.item}</strong>：${b.action}`;
+      bookingsList.appendChild(li);
     });
-    data.bookings.recommended_book_ahead.forEach(b => {
+    (data.bookings.recommended_book_ahead||[]).forEach(b => {
       const li = document.createElement('li');
-      li.innerHTML = `<em>${b.item}</em>: ${b.action}`;
-      document.getElementById('bookings-list').appendChild(li);
+      li.innerHTML = `<em>${b.item}</em>：${b.action}`;
+      bookingsList.appendChild(li);
     });
 
-    data.packing.short.forEach(p => {
+    const packingList = document.getElementById('packing-list');
+    (data.packing.short||[]).forEach(p => {
       const li = document.createElement('li');
       li.textContent = p;
-      document.getElementById('packing-list').appendChild(li);
+      packingList.appendChild(li);
     });
 
-    data.tips.forEach(t => {
+    const tipsList = document.getElementById('tips-list');
+    (data.tips||[]).forEach(t => {
       const li = document.createElement('li');
       li.textContent = t;
-      document.getElementById('tips-list').appendChild(li);
+      tipsList.appendChild(li);
     });
+
   })();
   </script>
 </body>
